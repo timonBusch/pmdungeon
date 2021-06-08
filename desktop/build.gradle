@@ -1,20 +1,39 @@
-plugins {
-    id 'java'
-    id 'application'
+sourceCompatibility = 1.11
+sourceSets.main.java.srcDirs = [ "src/" ]
+sourceSets.main.resources.srcDirs = ["../core/assets"]
+
+project.ext.mainClassName = "de.fhbielefeld.pmdungeon.desktop.DesktopLauncher"
+//project.ext.assetsDir = new File("../core/assets")
+
+task run(dependsOn: classes, type: JavaExec) {
+    main = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    //workingDir = project.assetsDir
+    ignoreExitValue = true
+}
+
+task debug(dependsOn: classes, type: JavaExec) {
+    main = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+    //workingDir = project.assetsDir
+    ignoreExitValue = true
+    debug = true
+}
+
+task dist(type: Jar) {
+    manifest {
+        attributes 'Main-Class': project.mainClassName
+    }
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
 }
 
 
-application {
-    mainClass = 'de.fhbielefeld.pmdungeon.desktop.DesktopLauncher'
-}
+dist.dependsOn classes
 
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation "junit:junit:4.13"
-    implementation project(':core')
-}
-
+eclipse.project.name = appName + "-desktop"

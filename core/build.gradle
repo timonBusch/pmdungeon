@@ -1,27 +1,6 @@
-plugins {
-    id 'java'
-    id 'java-library'
-}
+sourceCompatibility = 1.11
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
+sourceSets.main.java.srcDirs = [ "src/" ]
 
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    testImplementation 'junit:junit:4.13.1'
-
-    implementation 'com.google.code.gson:gson:2.8.6'
-
-    api "com.badlogicgames.gdx:gdx:1.9.12"
-    api "com.badlogicgames.gdx:gdx-box2d:1.9.12"
-    compile "com.badlogicgames.gdx:gdx-ai:1.8.1"
-    implementation "com.badlogicgames.gdx:gdx-freetype:1.9.12"
-    
-    api "com.badlogicgames.gdx:gdx-backend-lwjgl3:1.9.12"
-    api "com.badlogicgames.gdx:gdx-platform:1.9.12:natives-desktop"
-    api "com.badlogicgames.gdx:gdx-box2d-platform:1.9.12:natives-desktop"
-    implementation "com.badlogicgames.gdx:gdx-freetype-platform:1.9.12:natives-desktop"
-
-}
-
+eclipse.project.name = appName + "-core"
