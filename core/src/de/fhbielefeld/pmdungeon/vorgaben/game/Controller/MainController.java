@@ -38,10 +38,7 @@ public class MainController extends ScreenAdapter {
      */
     protected HUD hud;
 
-    /**
-     * Stage for Text
-     */
-    protected TextStage textHUD;
+    
 
     /**
      * Marks if the firstFrame is already calculated or not (true= not calculated)
@@ -73,7 +70,7 @@ public class MainController extends ScreenAdapter {
         if (!finishedSetup) {
             this.entityController = new EntityController();
             this.hud = new HUD();
-            this.textHUD = new TextStage(hud.getHudBatch());
+            
             setupCamera();
             setupWorldController();
             finishedSetup = true;
@@ -129,7 +126,7 @@ public class MainController extends ScreenAdapter {
 
         //updates and draw hud
         hud.draw();
-        textHUD.draw();
+        //textHUD.draw();
 
         endFrame();
 
