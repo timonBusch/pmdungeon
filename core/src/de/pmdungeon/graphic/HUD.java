@@ -5,15 +5,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-<<<<<<< HEAD:core/src/de/pmdungeon/graphic/HUD.java
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-
 import de.pmdungeon.interfaces.IHUDElement;
 import de.pmdungeon.tools.Constants;
-=======
-import de.fhbielefeld.pmdungeon.vorgaben.interfaces.IHUDElement;
-import de.fhbielefeld.pmdungeon.vorgaben.tools.Constants;
->>>>>>> parent of 5a31520 (HUD implement TextStage):core/src/de/fhbielefeld/pmdungeon/vorgaben/graphic/HUD.java
 
 import java.util.ArrayList;
 import java.util.List;
