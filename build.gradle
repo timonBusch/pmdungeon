@@ -33,6 +33,7 @@ allprojects {
 
 project(":desktop") {
     apply plugin: "java-library"
+    apply plugin: "eclipse"
 
     dependencies {
         api project(":core")
@@ -47,6 +48,7 @@ project(":desktop") {
 
 project(":core") {
     apply plugin: "java-library"
+    apply plugin: "eclipse"
 
     dependencies {
         api 'com.google.code.gson:gson:2.8.6'
