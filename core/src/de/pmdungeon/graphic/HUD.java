@@ -1,23 +1,15 @@
 package de.pmdungeon.graphic;
 
-
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-<<<<<<< HEAD:core/src/de/pmdungeon/graphic/HUD.java
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 import de.pmdungeon.interfaces.IHUDElement;
 import de.pmdungeon.tools.Constants;
-=======
-import de.fhbielefeld.pmdungeon.vorgaben.interfaces.IHUDElement;
-import de.fhbielefeld.pmdungeon.vorgaben.tools.Constants;
->>>>>>> parent of 5a31520 (HUD implement TextStage):core/src/de/fhbielefeld/pmdungeon/vorgaben/graphic/HUD.java
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * Holds the HUD.
@@ -84,7 +76,7 @@ public class HUD {
         for (IHUDElement element : hudElements) {
             Texture texture = element.getTexture();
             Sprite sprite = new Sprite(texture);
-            //scaling
+            // scaling
             sprite.setSize(element.getWidth(), element.getHeight() / texture.getWidth());
             sprite.setPosition(element.getPosition().x, element.getPosition().y);
             hudBatch.begin();
@@ -98,11 +90,12 @@ public class HUD {
      * Resizing the camera according to the size of the window.
      */
     public void resize() {
-        if (usePixelSystem) return;
-        hudCamera.setToOrtho(false, Constants.VIRTUALHEIGHT * Constants.WIDTH / (float) Constants.HEIGHT, Constants.VIRTUALHEIGHT);
+        if (usePixelSystem)
+            return;
+        hudCamera.setToOrtho(false, Constants.VIRTUALHEIGHT * Constants.WIDTH / (float) Constants.HEIGHT,
+                Constants.VIRTUALHEIGHT);
         hudBatch.setProjectionMatrix(hudCamera.combined);
     }
-
 
     public SpriteBatch getHudBatch() {
         return this.hudBatch;
