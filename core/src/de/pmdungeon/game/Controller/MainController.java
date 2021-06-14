@@ -80,16 +80,17 @@ public class MainController extends ScreenAdapter {
             setup();
         }
 
-        // load first level
-        try {
-            levelController.loadDungeon(new DungeonConverter().dungeonFromJson(Constants.STARTLEVEL));
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+        if (firstFrame) {
+            // load first level
+            firstFrame = false;
+            try {
+                levelController.loadDungeon(new DungeonConverter().dungeonFromJson(Constants.STARTLEVEL));
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
-        firstFrame = false;
-
     }
 
     /**
@@ -100,8 +101,7 @@ public class MainController extends ScreenAdapter {
      */
     @Override
     public final void render(float delta) {
-        if (firstFrame)
-            this.firstFrame();
+        firstFrame();
 
         beginFrame();
 
