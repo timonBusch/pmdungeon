@@ -8,7 +8,7 @@
 - build for teaching purposes
 
 ## How can i use it? 
-If you want to use this project as a framework only, and dont want to work on the framework itself go to [manual](## Manual).
+If you want to use this project as a framework only, and dont want to work on the framework itself go to [manual](# Manual).
 
 - explain Framework
 
@@ -17,7 +17,7 @@ If you want to use this project as a framework only, and dont want to work on th
 This manual helps you to set up a basic implementation using this project. 
 
 - [German Manual](./manual_DE.md)
-- [English Manual](./manual_DE.md)
+- [English Manual](./manual_EN.md)
 
 
 ## FAQ
