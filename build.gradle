@@ -13,7 +13,7 @@ ext {
     appName = "pmdungeon"
     gdxVersion = "1.10.0"
     aiVersion = "1.8.2"
-	gsonVersion = "2.8.6"
+    gsonVersion = "2.8.6"
 }
 
 repositories {
@@ -26,11 +26,11 @@ repositories {
 dependencies {
     api "com.google.code.gson:gson:$gsonVersion"
     api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
-	api "com.badlogicgames.gdx:gdx:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx:$gdxVersion"
     api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
     api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
     api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-	api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
     api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
 }
 
