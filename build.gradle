@@ -1,60 +1,44 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        gradlePluginPortal()
-        google()
-    }
-    dependencies {
-    }
+apply plugin: "java"
+apply plugin: "java-library"
+apply plugin: "eclipse"
+apply plugin: "application"
+
+sourceCompatibility = 1.11
+
+sourceSets.main.java.srcDirs = ["src"]
+mainClassName = "de.pmdungeon.desktop.Main"
+
+version = "1.0"
+ext {
+    appName = "pmdungeon"
+    gdxVersion = "1.10.0"
+    aiVersion = "1.8.2"
+    gsonVersion = "2.8.6"
 }
 
-allprojects {
-    apply plugin: "eclipse"
-
-    version = '1.0'
-    ext {
-        appName = "pmdungeon"
-        gdxVersion = '1.10.0'
-        roboVMVersion = '2.3.12'
-        box2DLightsVersion = '1.5'
-        ashleyVersion = '1.7.3'
-        aiVersion = '1.8.2'
-        gdxControllersVersion = '2.1.0'
-    }
-
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        google()
-        gradlePluginPortal()
-    }
+repositories {
+    mavenLocal()
+    mavenCentral()
+    google()
+    gradlePluginPortal()
 }
 
-project(":desktop") {
-    apply plugin: "java-library"
-    apply plugin: "eclipse"
-
-    dependencies {
-        api project(":core")
-        api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-        api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
-        api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
-        api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
-    }
+dependencies {
+    api "com.google.code.gson:gson:$gsonVersion"
+    api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+    api "com.badlogicgames.gdx:gdx:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
+    api "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+    api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
 }
 
-project(":core") {
-    apply plugin: "java-library"
-    apply plugin: "eclipse"
-
-    dependencies {
-        api 'com.google.code.gson:gson:2.8.6'
-        api "com.badlogicgames.gdx:gdx:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-        api "com.badlogicgames.gdx:gdx-ai:$aiVersion"
+jar {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
