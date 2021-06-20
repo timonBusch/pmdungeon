@@ -5,11 +5,11 @@ lang: en-EN
 
 # PM-Dungeon
 
-## What is this
+## What is this?
 
-- framework for 2D Games in Java
-- based on libGDX
-- uses Edgar Dotnet lvl generator
+- Framework for 2D Games in Java
+- based on [libGDX](https://libgdx.com/)
+- uses [Edgar-DotNet](https://github.com/OndrejNepozitek/Edgar-DotNet) (v1.06) levels
 - build for teaching purposes
 
 ## How can i use it? 
