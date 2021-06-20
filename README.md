@@ -13,9 +13,9 @@ lang: en-EN
 - build for teaching purposes
 
 ## How can i use it? 
-If you want to use this project as a framework only, and dont want to work on the framework itself go to [manual](# Manual).
+If you want to use this project as a framework only, and don´t want to work on the framework itself see [manual](# Manual).
 
-- explain Framework
+- TODO: explain Framework
 
 
 ## Manual
@@ -26,5 +26,6 @@ This manual helps you to set up a basic implementation using this project.
 
 
 ## FAQ
-*Q: Can i use this project in my lessons* 
+*Q: Can I use this project in my lessons*?` 
 *A: Yes. This project is build for teaching purposes.*
+
