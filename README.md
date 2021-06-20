@@ -27,7 +27,7 @@ This manual helps you to set up a basic implementation using this project.
 
 
 ## Structure and Framework
-If you need more information about the structure of this Framework see the [Framework Guide](/framework_EN)
+If you need more information about the structure of this framework see the [Framework Guide](/framework_EN)
 
 
 ## FAQ
