@@ -1,10 +1,12 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="pmdungeon" basedir="." default="clean-build">
+    <loadproperties srcFile="build.properties" />
+
     <property name="build.dir" value="build" />
     <property name="lib.dir" value="libs" />
     <property name="classes.dir" value="${build.dir}/classes" />
     <property name="jar.dir" value="${build.dir}/jar" />
 
-    <property name="ivy.install.version" value="2.1.0-rc2" />
+    <property name="ivy.install.version" value="${ivyVersion}" />
     <condition property="ivy.home" value="${env.IVY_HOME}">
         <isset property="env.IVY_HOME" />
     </condition>
