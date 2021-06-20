@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module xmlns:e="http://ant.apache.org/ivy/extra" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0" xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd">
+    <info organisation="pmdungeon" module="pmdungeon" />
+    <dependencies>
+        <dependency org="com.google.code.gson" name="gson" rev="${gsonVersion}" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-ai" rev="${gdxAiVersion}" />
+        <dependency org="com.badlogicgames.gdx" name="gdx" rev="${gdxVersion}" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-backend-lwjgl" rev="${gdxVersion}" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-backend-lwjgl3" rev="${gdxVersion}" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-platform" rev="${gdxVersion}" e:classifier="natives-desktop" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-box2d" rev="${gdxVersion}" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-box2d-platform" rev="${gdxVersion}" e:classifier="natives-desktop" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-freetype" rev="${gdxVersion}" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-freetype-platform" rev="${gdxVersion}" e:classifier="natives-desktop" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-tools" rev="${gdxVersion}" />
+        <conflict manager="latest-compatible" />
+        <!-- <conflict manager="all" /> -->
+    </dependencies>
+</ivy-module>

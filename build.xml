@@ -1,0 +1,84 @@
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="pmdungeon" basedir="." default="clean-build">
+    <property name="build.dir" value="build" />
+    <property name="lib.dir" value="libs" />
+    <property name="classes.dir" value="${build.dir}/classes" />
+    <property name="jar.dir" value="${build.dir}/jar" />
+
+    <property name="ivy.install.version" value="2.1.0-rc2" />
+    <condition property="ivy.home" value="${env.IVY_HOME}">
+        <isset property="env.IVY_HOME" />
+    </condition>
+    <property name="ivy.home" value="${user.home}/.ant" />
+    <property name="ivy.jar.dir" value="${ivy.home}/lib" />
+    <property name="ivy.jar.file" value="${ivy.jar.dir}/ivy.jar" />
+
+    <property name="main-class" value="de.pmdungeon.desktop.Main" />
+
+    <path id="src.path">
+        <pathelement location="src" />
+    </path>
+    <path id="classpath">
+        <pathelement path="${classes.dir}" />
+        <fileset dir="${lib.dir}" includes="**/*.jar" />
+    </path>
+
+
+    <target name="clean" description="target to clean the build directory">
+        <delete dir="${build.dir}" />
+    </target>
+
+    <target name="clean-all" description="target to clean the build and the mylibs directory">
+        <delete dir="${build.dir}" />
+        <delete dir="${lib.dir}" />
+    </target>
+
+    <target name="compile" depends="resolve" description="target to resolve all dependencies and to compile all sources">
+        <mkdir dir="${classes.dir}" />
+        <javac includeantruntime="false" destdir="${classes.dir}" classpathref="classpath" debug="true">
+            <src refid="src.path" />
+        </javac>
+    </target>
+
+    <target name="compile-run" depends="compile">
+        <java classpathref="classpath" classname="${main-class}">
+        </java>
+    </target>
+
+    <target name="jar" depends="compile" description="target to resolve all dependencies, to compile all sources and to build the fat jar">
+        <mkdir dir="${jar.dir}" />
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+            <fileset dir="${classes.dir}" includes="*.class" />
+            <zipgroupfileset dir="${lib.dir}" includes="*.jar" />
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="jar-run" depends="jar" description="target to resolve all dependencies, to compile all sources and to build and run the fat jar ('main-class' is used as entry point)">
+        <java jar="${jar.dir}/${ant.project.name}.jar" fork="true" />
+    </target>
+
+    <target name="clean-build" depends="clean,jar" description="default target to clean the build directory, to resolve all dependencies, to compile all sources and to build the fat jar (cleans not the mylibs directory)" />
+
+    <target name="download-ivy" unless="offline">
+        <mkdir dir="${ivy.jar.dir}" />
+        <!-- download Ivy from web site so that it can be used even without any special installation -->
+        <get src="https://repo1.maven.org/maven2/org/apache/ivy/ivy/${ivy.install.version}/ivy-${ivy.install.version}.jar" dest="${ivy.jar.file}" usetimestamp="true" />
+    </target>
+
+    <target name="init-ivy" depends="download-ivy">
+        <!-- try to load ivy here from ivy home, in case the user has not already dropped
+              it into ant's lib dir (note that the latter copy will always take precedence).
+              We will not fail as long as local lib dir exists (it may be empty) and
+              ivy is in at least one of ant's lib dir or the local lib dir. -->
+        <path id="ivy.lib.path">
+            <fileset dir="${ivy.jar.dir}" includes="*.jar" />
+        </path>
+        <taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant" classpathref="ivy.lib.path" />
+    </target>
+
+    <target name="resolve" description="target to retrieve all dependencies with Ivy">
+        <ivy:retrieve pattern="${lib.dir}/[artifact](-[classifier])-[revision].[ext]" />
+    </target>
+</project>

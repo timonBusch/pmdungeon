@@ -1,0 +1,10 @@
+<ivysettings>
+    <properties file="build.properties" />
+    <settings defaultResolver="repos" />
+    <resolvers>
+        <chain name="repos">
+            <!-- <ibiblio  name="my-maven" m2compatible="true" root="https://repo1.maven.org/maven2/" /> -->
+            <ibiblio name="my-jcenter" m2compatible="true" root="https://jcenter.bintray.com/" />
+        </chain>
+    </resolvers>
+</ivysettings>
