@@ -18,7 +18,7 @@ lang: en-EN
 - One of the following build tools:
   - Ant
   - Maven
-  - Gradle  
+  - Gradle
 
 ## Usage
 
@@ -31,7 +31,7 @@ TODO
 ### Gradle
 - TODO
 
-This manual helps you to set up a basic implementation using this project. 
+This manual helps you to set up a basic implementation using this project.
 - [German Manual](./docs/manual_DE.md)
 - [English Manual](./docs/manual_EN.md)
 
@@ -41,17 +41,17 @@ This manual helps you to set up a basic implementation using this project.
 If you need more information about the structure of this framework see the [Framework Guide](./docs/framework_EN.md)
 
 ## FAQ
-*Q: Can I use this project in my lessons*?` 
+*Q: Can I use this project in my lessons*?`
 *A: Yes. This project is build for teaching purposes.*
 
 ## Contributors
 
 tbd
-TODO check if this can be automated 
+TODO check if this can be automated
 
 TODO: How to contribute
 
 
 ## License
 
-All files are published under the MIT license by their respective authors. See [LICENSE](./LICENSE) for details.
+All files are published under the MIT license by their respective authors. See [LICENSE](./LICENSE.md) for details.
