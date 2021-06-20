@@ -37,8 +37,8 @@ This manual helps you to set up a basic implementation using this project.
 
 
 ## Structure and Framework
-If you need more information about the structure of this Framework see the [Framework Guide](./docs/framework_EN)
 
+If you need more information about the structure of this framework see the [Framework Guide](./docs/framework_EN)
 
 ## FAQ
 *Q: Can I use this project in my lessons*?` 
