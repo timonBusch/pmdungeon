@@ -1,4 +1,4 @@
-title: "PM-Dungeon: Getting started"
+title: "PM-Dungeon: Getting Started"
 author: "tbd"
 lang: en-EN
 ...

@@ -1,16 +1,26 @@
-title: "PM-Dungeon overview documentation"
+title: "PM-Dungeon: Overview"
 author: "André Matutat"
 lang: en-EN
 ...
 
-# PM-Dungeon
+# PM-Dungeon Overview
 
 - Framework for 2D Games in Java
-- based on [libGDX](https://libgdx.com/)
-- uses [Edgar-DotNet](https://github.com/OndrejNepozitek/Edgar-DotNet) (v1.06) levels
-- build for teaching purposes
+- Based on [libGDX](https://libgdx.com/)
+- Uses [Edgar-DotNet](https://github.com/OndrejNepozitek/Edgar-DotNet) (v1.06) levels
+- Build for teaching purposes
 
-## Installation
+
+
+## Requirements
+
+- JDK 11 or higher
+- One of the following build tools:
+  - Ant
+  - Maven
+  - Gradle  
+
+## Usage
 
 TODO
 
@@ -22,12 +32,12 @@ TODO
 - TODO
 
 This manual helps you to set up a basic implementation using this project. 
-- [German Manual](./manual_DE.md)
-- [English Manual](./manual_EN.md)
+- [German Manual](./docs/manual_DE.md)
+- [English Manual](./docs/manual_EN.md)
 
 
 ## Structure and Framework
-If you need more information about the structure of this Framework see the [Framework Guide](/framework_EN)
+If you need more information about the structure of this Framework see the [Framework Guide](./docs/framework_EN)
 
 
 ## FAQ
@@ -39,7 +49,9 @@ If you need more information about the structure of this Framework see the [Fram
 tbd
 TODO check if this can be automated 
 
+TODO: How to contribute
+
 
 ## License
 
-All files are published under the MIT license by their respective authors. See LICENSE for details.
+All files are published under the MIT license by their respective authors. See [LICENSE](./license.md) for details.

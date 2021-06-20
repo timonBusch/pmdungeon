@@ -1,5 +1,5 @@
 ---
-title: "PM-Dungeon: Getting started"
+title: "PM-Dungeon: Getting Started"
 author: "André Matutat"
 lang: de-DE
 ...
