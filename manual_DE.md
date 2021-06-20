@@ -1,5 +1,5 @@
 ---
-title: "Dokumentation zum PM-Dungeon"
+title: "Anleitung PM-Dungeon"
 author: "André Matutat"
 lang: de-DE
 ...
