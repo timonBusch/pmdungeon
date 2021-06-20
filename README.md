@@ -54,4 +54,4 @@ TODO: How to contribute
 
 ## License
 
-All files are published under the MIT license by their respective authors. See [LICENSE](./license.md) for details.
+All files are published under the MIT license by their respective authors. See [LICENSE](./LICENSE) for details.
