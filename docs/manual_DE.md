@@ -200,7 +200,7 @@ public void endFrame() {
 
 ### WSDA oder die Steuerung des Helden über die Tastatur
 
-Damit wir unser Spiel auch richtig testen können, sollten wir unserem Helden noch die Möglichkeit zum Bewegen geben. Dafür fügen wir Steuerungsoptionen in der `Held.upate`-Methode hinzu:
+Damit wir unser Spiel auch richtig testen können, sollten wir unserem Helden noch die Möglichkeit zum Bewegen geben. Dafür fügen wir Steuerungsoptionen in der `Held.update`-Methode hinzu:
 
 ```java
 //Temporären Point um den Held nur zu bewegen, wenn es keine Kollision gab
@@ -307,11 +307,12 @@ Sie können noch weitere Parameter und Methoden verwenden, um den Sound Ihren W�
 
 ### Text
 
-Ab Version 1.1.4.0 können Sie Texte mithilfe von `TextStage` auf den Bildschirm zeichnen. Verwenden Sie dafür die `TextStage`-Instanz `textHUD`, welche bereits in Ihrem `MainController` verfügbar ist.
+Ab Version 1.1.4.0 können Sie Texte mithilfe von `HUD` auf den Bildschirm zeichnen. Verwenden Sie dafür die `HUD`-Instanz.
 
-Verwenden Sie die Methode `TextStage.drawText`, um einen String auf Ihren Bildschirm zu zeichnen. Sie haben dabei eine umfangreiche Auswahl an Parametern, um Ihre Einstellungen anzupassen. Beachten Sie, dass die Positionen des Texts dieses Mal in "echten Pixeln" angegeben werden muss (wir arbeiten bereits daran, ein einheitliches Positionssystem zu entwickeln, bis dahin müssen Sie leider mit den unterschiedlichen Systemen arbeiten).
+Verwenden Sie die Methode `HUD.drawText`, um einen String auf Ihren Bildschirm zu zeichnen. Sie haben dabei eine umfangreiche Auswahl an Parametern, um Ihre Einstellungen anzupassen. Beachten Sie, dass die Positionen des Texts dieses Mal in "echten Pixeln" angegeben werden muss (wir arbeiten bereits daran, ein einheitliches Positionssystem zu entwickeln, bis dahin müssen Sie leider mit den unterschiedlichen Systemen arbeiten).
 
-`TextStage.drawText` gibt Ihnen ein `Label`-Objekt zurück, dieses können Sie verwenden, um den Text später anzupassen oder ihn vom Bildschirm zu entfernen.
+`HUD.drawText` gibt Ihnen ein `Label`-Objekt zurück, dieses können Sie verwenden, um den Text später anzupassen oder ihn vom Bildschirm zu entfernen.
+Um den Text anzupassen, können Sie `Label.setText("new String")` verwenden und um das Label zu löschen, können Sie `Label.remove()` verwenden.
 
 Im unteren Beispiel wird ein Text implementiert, welcher das aktuelle Level ausgibt.
 
@@ -320,19 +321,18 @@ public class MyMain extends MainController {
     .....
     Label levelLabel;
     int levelCounter=0;
+	
     public void onLevelLoad() {
         levelCounter++;
         if (levelCounter==1){
-            levelLabel=textHUD.drawText("Level"+x,"PATH/TO/FONT.ttf",Color.RED,30,50,50,30,30);
+            levelLabel=hud.drawText("Level"+x,"PATH/TO/FONT.ttf",Color.RED,30,50,50,30,30);
         }
         else{
-            levelLabel.setText("Level"+x)
+            levelLabel.setText("Level"+x);
         }
     }
     //remove label
-    //textHUD.removeText(levelLabel)
-    //remove all label
-    //textHUD.clear();
+    //levelLabel.remove();
 }
 ```
 

@@ -1,9 +1,16 @@
 package de.pmdungeon.graphic;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+
 import de.pmdungeon.interfaces.IHUDElement;
 import de.pmdungeon.tools.Constants;
 
@@ -13,14 +20,15 @@ import java.util.List;
 /**
  * Holds the HUD.
  */
-public class HUD {
+public class HUD extends Stage {
     private final SpriteBatch hudBatch;
     private final OrthographicCamera hudCamera;
     private final List<IHUDElement> hudElements;
     private boolean usePixelSystem = false;
 
-    public HUD() {
-        hudBatch = new SpriteBatch();
+    public HUD(SpriteBatch batch) {
+        super(new ScreenViewport(), batch);
+        hudBatch = batch;
         hudCamera = new OrthographicCamera();
         hudCamera.position.set(0, 0, 0);
         hudCamera.update();
@@ -65,6 +73,8 @@ public class HUD {
         }
         drawElements();
         resize();
+        super.act();
+        super.draw();
 
     }
 
@@ -98,5 +108,35 @@ public class HUD {
 
     public SpriteBatch getHudBatch() {
         return this.hudBatch;
+    }
+    
+    /**
+     * Draws a given text on the screen.
+     *
+     * @param text     text to draw
+     * @param fontPath font to use
+     * @param color    color to use
+     * @param size     font size to use
+     * @param width    width of the text box
+     * @param height   height of the text box
+     * @param x        x-position in pixel
+     * @param y        y-position in pixel
+     * @return Label (use this to alter text or remove the text later)
+     */
+    public Label drawText(String text, String fontPath, Color color, int size, int width, int height, int x, int y) {
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fontPath));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = size;
+        parameter.borderWidth = 1;
+        parameter.color = color;
+        Label.LabelStyle labelStyle = new Label.LabelStyle();
+        labelStyle.font = generator.generateFont(parameter);
+        generator.dispose();
+        Label label = new Label(text, labelStyle);
+        label.setSize(width, height);
+        label.setPosition(x, y);
+
+        this.addActor(label);
+        return label;
     }
 }

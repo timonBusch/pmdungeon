@@ -2,16 +2,14 @@ package de.pmdungeon.game.Controller;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import de.pmdungeon.dungeonCreator.dungeonconverter.DungeonConverter;
 import de.pmdungeon.game.GameSetup;
 import de.pmdungeon.graphic.HUD;
-import de.pmdungeon.graphic.TextStage;
 import de.pmdungeon.tools.Constants;
 import de.pmdungeon.tools.DungeonCamera;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
 import static com.badlogic.gdx.graphics.GL20.GL_COLOR_BUFFER_BIT;
 
 /**
@@ -37,11 +35,6 @@ public class MainController extends ScreenAdapter {
     protected HUD hud;
 
     /**
-     * Stage for Text
-     */
-    protected TextStage textHUD;
-
-    /**
      * Marks if the firstFrame is already calculated or not (true= not calculated)
      */
     protected boolean firstFrame = true;
@@ -50,8 +43,7 @@ public class MainController extends ScreenAdapter {
     // be used to stop loops of firstFrame
     private boolean finishedSetup = false;
 
-    // ----------------------------- OWN IMPLEMENTATION
-    // -----------------------------
+    // --------------------------- OWN IMPLEMENTATION ---------------------------
     protected void setup() {
     }
 
@@ -63,8 +55,7 @@ public class MainController extends ScreenAdapter {
 
     public void onLevelLoad() {
     }
-    // ----------------------------- END OWN IMPLEMENTATION
-    // --------------------------
+    // --------------------------- END OWN IMPLEMENTATION ------------------------
 
     /**
      * Setup for the MainController
@@ -72,8 +63,7 @@ public class MainController extends ScreenAdapter {
     private void firstFrame() {
         if (!finishedSetup) {
             this.entityController = new EntityController();
-            this.hud = new HUD();
-            this.textHUD = new TextStage(hud.getHudBatch());
+            this.hud = new HUD(new SpriteBatch());
             setupCamera();
             setupWorldController();
             finishedSetup = true;
@@ -129,7 +119,6 @@ public class MainController extends ScreenAdapter {
 
         // updates and draw hud
         hud.draw();
-        textHUD.draw();
 
         endFrame();
 
