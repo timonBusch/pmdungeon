@@ -28,7 +28,7 @@ TODO
 - TODO
 
 ### Maven
-- First run `mvn clean compile` in your project folder than use `mvn exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"` to start the game.
+- First run `mvn clean compile` in your project folder, then use `mvn exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"` to start the game.
 
 ### Gradle
 - TODO
