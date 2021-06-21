@@ -12,19 +12,31 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import static com.badlogic.gdx.graphics.GL20.GL_COLOR_BUFFER_BIT;
 
-/** Controls the game. Setup for all important objects. Contains Gameloop. */
+/**
+ * Controls the game. Setup for all important objects. Contains Gameloop.
+ */
 public class MainController extends ScreenAdapter {
 
-    /** Controls all entity's */
+    /**
+     * Controls all entity's
+     */
     protected EntityController entityController;
-    /** The viewport for the dungeon */
+    /**
+     * The viewport for the dungeon
+     */
     protected DungeonCamera camera;
-    /** Controls the level */
+    /**
+     * Controls the level
+     */
     protected LevelController levelController;
-    /** HUD */
+    /**
+     * HUD
+     */
     protected HUD hud;
 
-    /** Marks if the firstFrame is already calculated or not (true= not calculated) */
+    /**
+     * Marks if the firstFrame is already calculated or not (true= not calculated)
+     */
     protected boolean firstFrame = true;
 
     // if you call a gdx function in setup this will call draw, so this boolean will
@@ -32,16 +44,22 @@ public class MainController extends ScreenAdapter {
     private boolean finishedSetup = false;
 
     // --------------------------- OWN IMPLEMENTATION ---------------------------
-    protected void setup() {}
+    protected void setup() {
+    }
 
-    protected void beginFrame() {}
+    protected void beginFrame() {
+    }
 
-    protected void endFrame() {}
+    protected void endFrame() {
+    }
 
-    public void onLevelLoad() {}
+    public void onLevelLoad() {
+    }
     // --------------------------- END OWN IMPLEMENTATION ------------------------
 
-    /** Setup for the MainController */
+    /**
+     * Setup for the MainController
+     */
     private void firstFrame() {
         if (!finishedSetup) {
             this.entityController = new EntityController();
@@ -56,8 +74,7 @@ public class MainController extends ScreenAdapter {
             // load first level
             firstFrame = false;
             try {
-                levelController.loadDungeon(
-                        new DungeonConverter().dungeonFromJson(Constants.STARTLEVEL));
+                levelController.loadDungeon(new DungeonConverter().dungeonFromJson(Constants.getStartLevel()));
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
@@ -69,8 +86,8 @@ public class MainController extends ScreenAdapter {
     /**
      * Main Gameloop. Redraws the dungeon and calls all the update methods.
      *
-     * @param delta Time since last loop. (since the PM-Dungeon is frame based, this isn't very
-     *     useful)
+     * @param delta Time since last loop. (since the PM-Dungeon is frame based, this
+     *              isn't very useful)
      */
     @Override
     public final void render(float delta) {
@@ -104,9 +121,12 @@ public class MainController extends ScreenAdapter {
         hud.draw();
 
         endFrame();
+
     }
 
-    /** Setting up the WorldController. */
+    /**
+     * Setting up the WorldController.
+     */
     private void setupWorldController() {
         try {
             // this method will be called every time a new level gets load
@@ -120,13 +140,12 @@ public class MainController extends ScreenAdapter {
         }
     }
 
-    /** Setting up the camera. */
+    /**
+     * Setting up the camera.
+     */
     private void setupCamera() {
-        camera =
-                new DungeonCamera(
-                        null,
-                        Constants.VIRTUALHEIGHT * Constants.WIDTH / (float) Constants.HEIGHT,
-                        Constants.VIRTUALHEIGHT);
+        camera = new DungeonCamera(null, Constants.getVirtualHeight() * Constants.getWidth() / (float) Constants.getHeight(),
+                Constants.getVirtualHeight());
         camera.position.set(0, 0, 0);
         camera.zoom += 1;
         camera.update();

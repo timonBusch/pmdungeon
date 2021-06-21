@@ -1,5 +1,6 @@
 package de.pmdungeon.game.Controller;
 
+
 import de.pmdungeon.dungeonCreator.DungeonWorld;
 import de.pmdungeon.dungeonCreator.dungeonconverter.DungeonConverter;
 import de.pmdungeon.game.GameSetup;
@@ -9,27 +10,45 @@ import de.pmdungeon.tools.Point;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-/** Use this to control the level itself. */
+
+/**
+ * Use this to control the level itself.
+ */
 public class LevelController {
-    /** Method to call after a new level is loaded */
+    /**
+     * Method to call after a new level is loaded
+     */
     private final Method onLevelLoad;
-    /** Instance of the class that contains onLevelLoad (should be MainGameController) */
+    /**
+     * Instance of the class that contains onLevelLoad (should be MainGameController)
+     */
     private final Object klass;
-    /** Arguments for onLevelLoad */
+    /**
+     * Arguments for onLevelLoad
+     */
     private final Object[] args;
-    /** the converter that generates the dungeon out of a json */
+    /**
+     * the converter that generates the dungeon out of a json
+     */
     private final DungeonConverter dungeonConverter = new DungeonConverter();
-    /** if this is true, the next level will get load */
+    /**
+     * if this is true, the next level will get load
+     */
     private boolean nextLevelTriggered = false;
-    /** the current level */
+    /**
+     * the current level
+     */
     private DungeonWorld dungeonWorld;
-    /** the next level */
+    /**
+     * the next level
+     */
     private Stage nextStage = Stage.A;
+
 
     /**
      * @param onLevelLoad Method that will be called if a new level get load
-     * @param klass Instance of the MainControllerClass
-     * @param args Arguments for onLevelLoaded
+     * @param klass       Instance of the MainControllerClass
+     * @param args        Arguments for onLevelLoaded
      */
     public LevelController(Method onLevelLoad, Object klass, Object[] args) {
         this.onLevelLoad = onLevelLoad;
@@ -44,17 +63,19 @@ public class LevelController {
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
-    public void loadDungeon(DungeonWorld dungeon)
-            throws InvocationTargetException, IllegalAccessException {
+    public void loadDungeon(DungeonWorld dungeon) throws InvocationTargetException, IllegalAccessException {
         this.dungeonWorld = dungeon;
         this.nextLevelTriggered = false;
         this.dungeonWorld.makeConnections();
         onLevelLoad.invoke(klass, args);
     }
 
-    /** If next level is triggered, this will load it. Also draws the level. */
+    /**
+     * If next level is triggered, this will load it.
+     * Also draws the level.
+     */
     public void update() {
-        // load next stage if triggered
+        //load next stage if triggered
         if (nextLevelTriggered) {
             try {
                 nextStage();
@@ -74,11 +95,12 @@ public class LevelController {
      * @return result of check
      */
     public boolean checkForTrigger(Point p) {
-        return (int) p.x == dungeonWorld.getNextLevelTrigger().getX()
-                && (int) p.y == dungeonWorld.getNextLevelTrigger().getY();
+        return (int) p.x == dungeonWorld.getNextLevelTrigger().getX() && (int) p.y == dungeonWorld.getNextLevelTrigger().getY();
     }
 
-    /** Used to set the trigger if the next level should be loaded */
+    /**
+     * Used to set the trigger if the next level should be loaded
+     */
     public void triggerNextStage() {
         this.nextLevelTriggered = true;
     }
@@ -92,45 +114,43 @@ public class LevelController {
         return dungeonWorld;
     }
 
-    /** Draws the dungeon itself. */
+    /**
+     * Draws the dungeon itself.
+     */
     public void draw() {
         if (dungeonWorld == null) return;
         dungeonWorld.renderFloor(GameSetup.batch);
         dungeonWorld.renderWalls(dungeonWorld.getHeight() - 1, 0, GameSetup.batch);
     }
-    // Switch dungeon.
+    //Switch dungeon.
 
-    /** If next stage is triggered, change the dungeon. */
+    /**
+     * If next stage is triggered, change the dungeon.
+     */
     private void nextStage() throws InvocationTargetException, IllegalAccessException {
         switch (nextStage) {
             case A:
-                loadDungeon(
-                        dungeonConverter.dungeonFromJson(
-                                Constants.PATHTOLEVEL + "small_dungeon.json"));
+                loadDungeon(dungeonConverter.dungeonFromJson(Constants.getPathToLevel() + "small_dungeon.json"));
                 nextStage = Stage.B;
                 break;
             case B:
-                loadDungeon(
-                        dungeonConverter.dungeonFromJson(
-                                Constants.PATHTOLEVEL + "simple_dungeon_2.json"));
+                loadDungeon(dungeonConverter.dungeonFromJson(Constants.getPathToLevel() + "simple_dungeon_2.json"));
                 nextStage = Stage.C;
                 break;
             case C:
-                loadDungeon(
-                        dungeonConverter.dungeonFromJson(
-                                Constants.PATHTOLEVEL + "simple_dungeon.json"));
+                loadDungeon(dungeonConverter.dungeonFromJson(Constants.getPathToLevel() + "simple_dungeon.json"));
                 nextStage = Stage.D;
                 break;
             case D:
-                loadDungeon(
-                        dungeonConverter.dungeonFromJson(
-                                Constants.PATHTOLEVEL + "boss_dungeon.json"));
+                loadDungeon(dungeonConverter.dungeonFromJson(Constants.getPathToLevel() + "boss_dungeon.json"));
                 nextStage = Stage.A;
                 break;
         }
     }
 
-    /** used to manage nextStage() */
+    /**
+     * used to manage nextStage()
+     */
     enum Stage {
         A,
         B,
