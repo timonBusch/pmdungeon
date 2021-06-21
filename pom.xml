@@ -13,36 +13,13 @@
 
         <!-- Defines the dependency versions. -->
         <jdk.version>11</jdk.version>
-        <gdx.version>1.9.12</gdx.version>
-        <gdxai.version>1.8.1</gdxai.version>
+
         <gson.version>2.8.6</gson.version>
+        <gdxai.version>1.8.1</gdxai.version>
+        <gdx.version>1.9.12</gdx.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.badlogicgames.gdx</groupId>
-            <artifactId>gdx</artifactId>
-            <version>${gdx.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.badlogicgames.gdx</groupId>
-            <artifactId>gdx-box2d</artifactId>
-            <version>${gdx.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.badlogicgames.gdx</groupId>
-            <artifactId>gdx-freetype</artifactId>
-            <version>${gdx.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.badlogicgames.gdx</groupId>
-            <artifactId>gdx-ai</artifactId>
-            <version>${gdxai.version}</version>
-            <scope>compile</scope>
-        </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -52,7 +29,20 @@
 
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx-ai</artifactId>
+            <version>${gdxai.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-backend-lwjgl3</artifactId>
+            <version>${gdx.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx</artifactId>
             <version>${gdx.version}</version>
             <scope>compile</scope>
         </dependency>
@@ -65,9 +55,21 @@
         </dependency>
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx-box2d</artifactId>
+            <version>${gdx.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-box2d-platform</artifactId>
             <version>${gdx.version}</version>
             <classifier>natives-desktop</classifier>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx-freetype</artifactId>
+            <version>${gdx.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -88,8 +90,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.1</version>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
                     </configuration>
                 </plugin>
             </plugins>
