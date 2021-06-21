@@ -1,14 +1,3 @@
-## maven
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-
 ## Java
 
 *.class
@@ -121,10 +110,6 @@ gradle-app.setting
 /ios/build/
 /ios-moe/build/
 
-## Maven
-
-*/target/*
-
 ## OS Specific
 .DS_Store
 Thumbs.db
@@ -152,3 +137,6 @@ build
 assets
 build
 libs
+
+## Maven
+target
