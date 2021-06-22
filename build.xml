@@ -81,7 +81,6 @@
     </target>
 
     <target name="resolve" description="target to retrieve all dependencies with Ivy">
-        <!-- <ivy:retrieve pattern="${lib.dir}/[artifact]-[revision](-[classifier]).[ext]" /> -->
         <ivy:retrieve />
     </target>
 </project>

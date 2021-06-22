@@ -18,7 +18,5 @@
         <dependency org="org.lwjgl" name="lwjgl-opengl" rev="${lwjglVersion}" />
         <dependency org="org.lwjgl" name="lwjgl-jemalloc" rev="${lwjglVersion}" />
         <dependency org="org.lwjgl" name="lwjgl-openal" rev="${lwjglVersion}" />
-        <!-- <conflict manager="latest-compatible" /> -->
-        <!-- <conflict manager="all" /> -->
     </dependencies>
 </ivy-module>
