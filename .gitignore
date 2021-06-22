@@ -136,6 +136,7 @@ build
 ## Ant
 assets
 build
+lib
 libs
 
 ## Maven

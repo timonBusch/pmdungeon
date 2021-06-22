@@ -5,15 +5,20 @@
         <dependency org="com.google.code.gson" name="gson" rev="${gsonVersion}" />
         <dependency org="com.badlogicgames.gdx" name="gdx-ai" rev="${gdxAiVersion}" />
         <dependency org="com.badlogicgames.gdx" name="gdx" rev="${gdxVersion}" />
-        <dependency org="com.badlogicgames.gdx" name="gdx-backend-lwjgl" rev="${gdxVersion}" />
         <dependency org="com.badlogicgames.gdx" name="gdx-backend-lwjgl3" rev="${gdxVersion}" />
-        <dependency org="com.badlogicgames.gdx" name="gdx-platform" rev="${gdxVersion}" e:classifier="natives-desktop" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-platform" rev="${gdxVersion}">
+            <artifact name="gdx-platform" type="jar" e:classifier="natives-desktop" />
+        </dependency>
         <dependency org="com.badlogicgames.gdx" name="gdx-box2d" rev="${gdxVersion}" />
-        <dependency org="com.badlogicgames.gdx" name="gdx-box2d-platform" rev="${gdxVersion}" e:classifier="natives-desktop" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-box2d-platform" rev="${gdxVersion}" />
         <dependency org="com.badlogicgames.gdx" name="gdx-freetype" rev="${gdxVersion}" />
-        <dependency org="com.badlogicgames.gdx" name="gdx-freetype-platform" rev="${gdxVersion}" e:classifier="natives-desktop" />
-        <dependency org="com.badlogicgames.gdx" name="gdx-tools" rev="${gdxVersion}" />
-        <conflict manager="latest-compatible" />
+        <dependency org="com.badlogicgames.gdx" name="gdx-freetype-platform" rev="${gdxVersion}" />
+        <dependency org="org.lwjgl" name="lwjgl" rev="${lwjglVersion}" />
+        <dependency org="org.lwjgl" name="lwjgl-glfw" rev="${lwjglVersion}" />
+        <dependency org="org.lwjgl" name="lwjgl-opengl" rev="${lwjglVersion}" />
+        <dependency org="org.lwjgl" name="lwjgl-jemalloc" rev="${lwjglVersion}" />
+        <dependency org="org.lwjgl" name="lwjgl-openal" rev="${lwjglVersion}" />
+        <!-- <conflict manager="latest-compatible" /> -->
         <!-- <conflict manager="all" /> -->
     </dependencies>
 </ivy-module>

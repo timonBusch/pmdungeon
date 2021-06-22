@@ -2,7 +2,7 @@
     <loadproperties srcFile="build.properties" />
 
     <property name="build.dir" value="build" />
-    <property name="lib.dir" value="libs" />
+    <property name="lib.dir" value="lib" />
     <property name="classes.dir" value="${build.dir}/classes" />
     <property name="jar.dir" value="${build.dir}/jar" />
 
@@ -81,6 +81,7 @@
     </target>
 
     <target name="resolve" description="target to retrieve all dependencies with Ivy">
-        <ivy:retrieve pattern="${lib.dir}/[artifact](-[classifier])-[revision].[ext]" />
+        <!-- <ivy:retrieve pattern="${lib.dir}/[artifact]-[revision](-[classifier]).[ext]" /> -->
+        <ivy:retrieve />
     </target>
 </project>
