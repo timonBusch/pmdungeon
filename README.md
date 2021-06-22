@@ -25,7 +25,7 @@ lang: en-EN
 TODO
 
 ### ANT
-- TODO
+- Run `ant init-ivy` once in your project folder, to initialize ivy, then use `ant compile-run` to compile your sources and to start the game.
 
 ### Maven
 - First run `mvn clean compile` in your project folder, then use `mvn exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"` to start the game.
