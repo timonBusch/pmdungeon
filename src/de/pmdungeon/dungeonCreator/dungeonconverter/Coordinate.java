@@ -2,44 +2,42 @@ package de.pmdungeon.dungeonCreator.dungeonconverter;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Holds a coordinate
- */
+/** Holds a coordinate */
 public class Coordinate {
 
-    @SerializedName("X")
-    private int x;
-    @SerializedName("Y")
-    private int y;
+  @SerializedName("X")
+  private int x;
 
-    public Coordinate() {
-    }
+  @SerializedName("Y")
+  private int y;
 
-    public Coordinate(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+  public Coordinate() {}
 
-    public void add(Coordinate coordinate) {
-        if (coordinate != null) {
-            this.x += coordinate.getX();
-            this.y += coordinate.getY();
-        }
-    }
+  public Coordinate(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
 
-    public int getX() {
-        return x;
+  public void add(Coordinate coordinate) {
+    if (coordinate != null) {
+      this.x += coordinate.getX();
+      this.y += coordinate.getY();
     }
+  }
 
-    public void setX(int x) {
-        this.x = x;
-    }
+  public int getX() {
+    return x;
+  }
 
-    public int getY() {
-        return y;
-    }
+  public void setX(int x) {
+    this.x = x;
+  }
 
-    public void setY(int y) {
-        this.y = y;
-    }
+  public int getY() {
+    return y;
+  }
+
+  public void setY(int y) {
+    this.y = y;
+  }
 }

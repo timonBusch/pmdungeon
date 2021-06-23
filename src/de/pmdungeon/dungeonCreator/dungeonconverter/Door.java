@@ -2,45 +2,45 @@ package de.pmdungeon.dungeonCreator.dungeonconverter;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Represents a door in the dungeon
- */
+/** Represents a door in the dungeon */
 public class Door {
 
-    @SerializedName("Node")
-    private int node;
-    @SerializedName("From")
-    private Coordinate from;
-    @SerializedName("To")
-    private Coordinate to;
+  @SerializedName("Node")
+  private int node;
 
-    public Door(int node, Coordinate from, Coordinate to) {
-        this.node = node;
-        this.from = from;
-        this.to = to;
-    }
+  @SerializedName("From")
+  private Coordinate from;
 
-    public int getNode() {
-        return node;
-    }
+  @SerializedName("To")
+  private Coordinate to;
 
-    public void setNode(int node) {
-        this.node = node;
-    }
+  public Door(int node, Coordinate from, Coordinate to) {
+    this.node = node;
+    this.from = from;
+    this.to = to;
+  }
 
-    public Coordinate getFrom() {
-        return from;
-    }
+  public int getNode() {
+    return node;
+  }
 
-    public void setFrom(Coordinate from) {
-        this.from = from;
-    }
+  public void setNode(int node) {
+    this.node = node;
+  }
 
-    public Coordinate getTo() {
-        return to;
-    }
+  public Coordinate getFrom() {
+    return from;
+  }
 
-    public void setTo(Coordinate to) {
-        this.to = to;
-    }
+  public void setFrom(Coordinate from) {
+    this.from = from;
+  }
+
+  public Coordinate getTo() {
+    return to;
+  }
+
+  public void setTo(Coordinate to) {
+    this.to = to;
+  }
 }
