@@ -54,6 +54,7 @@
             <fileset dir="${classes.dir}" includes="*.class" />
             <zipgroupfileset dir="${lib.dir}" includes="*.jar" />
             <manifest>
+                <attribute name="Main-Class" value="${main-class}" />
             </manifest>
         </jar>
     </target>
