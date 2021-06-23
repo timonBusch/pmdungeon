@@ -16,6 +16,9 @@
 
     <property name="main-class" value="de.pmdungeon.desktop.Main" />
 
+    <property name="javac.source" value="11" />
+    <property name="javac.target" value="11" />
+
     <path id="src.path">
         <pathelement location="src" />
     </path>
@@ -23,7 +26,6 @@
         <pathelement path="${classes.dir}" />
         <fileset dir="${lib.dir}" includes="**/*.jar" />
     </path>
-
 
     <target name="clean" description="target to clean the build directory">
         <delete dir="${build.dir}" />
@@ -36,7 +38,7 @@
 
     <target name="compile" depends="resolve" description="target to resolve all dependencies and to compile all sources">
         <mkdir dir="${classes.dir}" />
-        <javac includeantruntime="false" destdir="${classes.dir}" classpathref="classpath" debug="true">
+        <javac includeantruntime="false" destdir="${classes.dir}" classpathref="classpath" source="${javac.source}" target="${javac.target}" debug="true">
             <src refid="src.path" />
         </javac>
     </target>
@@ -52,7 +54,6 @@
             <fileset dir="${classes.dir}" includes="*.class" />
             <zipgroupfileset dir="${lib.dir}" includes="*.jar" />
             <manifest>
-                <attribute name="Main-Class" value="${main-class}" />
             </manifest>
         </jar>
     </target>
