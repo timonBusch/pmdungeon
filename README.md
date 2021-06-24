@@ -48,8 +48,11 @@ If you need more information about the structure of this framework see the [Fram
 
 ## Contributors
 
-tbd
-TODO check if this can be automated
+<a href="https://github.com/AMatutat/pmdungeon/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=AMatutat/pmdungeon" />
+</a> <br>
+Made with [contributors-img](https://contrib.rocks).
+
 
 TODO: How to contribute
 
