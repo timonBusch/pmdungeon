@@ -4,7 +4,7 @@
     <property name="build.dir" value="build" />
     <property name="lib.dir" value="lib" />
     <property name="classes.dir" value="${build.dir}/classes" />
-    <property name="jar.dir" value="${build.dir}/jar" />
+    <property name="jar.dir" value="target" />
 
     <property name="ivy.install.version" value="${ivyVersion}" />
     <condition property="ivy.home" value="${env.IVY_HOME}">
@@ -16,6 +16,9 @@
 
     <property name="main-class" value="de.pmdungeon.desktop.Main" />
 
+    <property name="javac.source" value="11" />
+    <property name="javac.target" value="11" />
+
     <path id="src.path">
         <pathelement location="src" />
     </path>
@@ -23,7 +26,6 @@
         <pathelement path="${classes.dir}" />
         <fileset dir="${lib.dir}" includes="**/*.jar" />
     </path>
-
 
     <target name="clean" description="target to clean the build directory">
         <delete dir="${build.dir}" />
@@ -36,7 +38,7 @@
 
     <target name="compile" depends="resolve" description="target to resolve all dependencies and to compile all sources">
         <mkdir dir="${classes.dir}" />
-        <javac includeantruntime="false" destdir="${classes.dir}" classpathref="classpath" debug="true">
+        <javac includeantruntime="false" destdir="${classes.dir}" classpathref="classpath" source="${javac.source}" target="${javac.target}" debug="true">
             <src refid="src.path" />
         </javac>
     </target>
