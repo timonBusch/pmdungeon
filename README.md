@@ -25,21 +25,17 @@ lang: en-EN
 TODO
 
 ### Ant
-- Windows prerequisites:
-  - Download and unzip Ant, set the Windows system path variables for Ant (see [here](https://ant.apache.org/manual/install.html), set at least `ANT_HOME` and `%ANT_HOME%\bin`)
-- Linux/MacOS prerequisites:
-  - Run `sudo apt-get update` and then `sudo apt-get install ant`
+- OS-dependent prerequisites:
+  - See [here](https://ant.apache.org/manual/install.html)
 - General prerequisites:
   - Adapt settings in `build.xml` (property `main-class`) to reflect your main class
-  - Run `ant init-ivy` once in your project folder, to download and install ivy
+  - Run `ant init-ivy` once in your project folder to download and install ivy
 - Use `ant compile-run` to compile your sources and to start the game
 
 ### Maven
-- Windows prerequisites:
-  - Download and unzip Maven, set the Windows system path variables for Maven (see [here](https://maven.apache.org/install.html), set at least `MAVEN_HOME` and `%MAVEN_HOME%\bin`)
-- Linux/MacOS prerequisites:
-  - Run `sudo apt-get update` and then `sudo apt-get install maven`
-- Run `mvn clean compile` in your project folder, to clean old builds and to compile your sources 
+- OS-dependent prerequisites:
+  - See [here](https://maven.apache.org/install.html)
+- Run `mvn clean compile` in your project folder to clean old builds and to compile your sources 
 - Use `mvn exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"` to start the game (replace `PACKAGE.MAIN` with your main class)
 - You can optionally call all goals at once: `mvn clean compile exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"`
 
