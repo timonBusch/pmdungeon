@@ -111,15 +111,14 @@ public class HUD extends Stage {
    * @param height height of the text box
    * @param x x-position in pixel
    * @param y y-position in pixel
+   * @param borderWidth borderWidth for the text
    * @return Label (use this to alter text or remove the text later)
    */
-  public Label drawText(
-      String text, String fontPath, Color color, int size, int width, int height, int x, int y) {
+  public Label drawText(String text, String fontPath, Color color, int size, int width, int height, int x, int y, int borderWidth) {
     FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fontPath));
-    FreeTypeFontGenerator.FreeTypeFontParameter parameter =
-        new FreeTypeFontGenerator.FreeTypeFontParameter();
+    FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
     parameter.size = size;
-    parameter.borderWidth = 1;
+    parameter.borderWidth = borderWidth;
     parameter.color = color;
     Label.LabelStyle labelStyle = new Label.LabelStyle();
     labelStyle.font = generator.generateFont(parameter);
@@ -130,5 +129,9 @@ public class HUD extends Stage {
 
     this.addActor(label);
     return label;
+  }
+  
+  public Label drawText(String text, String fontPath, Color color, int size, int width, int height, int x, int y) {
+    return this.drawText(text, fontPath, color, size, width, height, x, y, 1);
   }
 }
