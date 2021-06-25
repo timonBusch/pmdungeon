@@ -51,6 +51,7 @@ If you need more information about the structure of this framework see the [Fram
 <a href="https://github.com/AMatutat/pmdungeon/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=AMatutat/pmdungeon" />
 </a> <br>
+
 Made with [contributors-img](https://contrib.rocks).
 
 
