@@ -24,30 +24,45 @@ lang: en-EN
 
 TODO
 
-### ANT
-- Download and unzip Ant, set the Windows system path variables for Ant (see [here](https://ant.apache.org/manual/install.html), set at least `ANT_HOME` and `%ANT_HOME%\bin`)
-- Add or modify your main class in the `build.xml` file at line 17
-- Run `ant init-ivy` once in your project folder, to initialize ivy
+### Ant
+- Windows prerequisites:
+  - Download and unzip Ant, set the Windows system path variables for Ant (see [here](https://ant.apache.org/manual/install.html), set at least `ANT_HOME` and `%ANT_HOME%\bin`)
+- Linux/MacOS prerequisites:
+  - Run `sudo apt-get update` and then `sudo apt-get install ant`
+- General prerequisites:
+  - Adapt settings in `build.xml` (property `main-class`) to reflect your main class
+  - Run `ant init-ivy` once in your project folder, to download and install ivy
 - Use `ant compile-run` to compile your sources and to start the game
 
 ### Maven
-- Download and unzip Maven, set the Windows system path variables for Maven (see [here](https://maven.apache.org/install.html), set at least `MAVEN_HOME` and `%MAVEN_HOME%\bin`)
-- Run `mvn clean compile` in your project folder, to compile your sources
-- Use `mvn exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"` to start the game
+- Windows prerequisites:
+  - Download and unzip Maven, set the Windows system path variables for Maven (see [here](https://maven.apache.org/install.html), set at least `MAVEN_HOME` and `%MAVEN_HOME%\bin`)
+- Linux/MacOS prerequisites:
+  - Run `sudo apt-get update` and then `sudo apt-get install maven`
+- Run `mvn clean compile` in your project folder, to clean old builds and to compile your sources 
+- Use `mvn exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"` to start the game (replace `PACKAGE.MAIN` with your main class)
 - You can optionally call all goals at once: `mvn clean compile exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"`
 
 ### Gradle
-- You don't need to install Gradle because you can use the delivered Gradle wrapper
-- Add or modify your main class in the `build.gradle` file at line 9
-- Run `gradlew build` in your project folder, to compile your sources
-- Use `gradlew run` to start the game
+- General prerequisites:
+  - You don't need to install Gradle because you can use the Gradle wrapper provided in this project/repo
+  - Adapt settings in `build.gradle` (property `mainClassName`) to reflect your main class
+- Use `gradlew run` to compile your sources and to start the game
 
 ### Eclipse integration
-- Open Eclipse/your workspace
-- Right click in project explorer and choose `Import...`
-- Choose `Existing Maven Projects`
-- Choose the root directory and pick the `pom.xml`
-- Click `Finish`
+- Maven project integration:
+  - Open Eclipse and your workspace
+  - Right click in project explorer and choose `Import...`
+  - Choose `Existing Maven Projects`
+  - Choose the root directory and pick the `pom.xml`
+  - Click `Finish`
+- Gradle project integration:
+  - Open Eclipse and your workspace
+  - Right click in project explorer and choose `Import...`
+  - Choose `Existing Gradle Project`
+  - Skip Welcome
+  - Choose the project root directory
+  - Click `Finish`
 
 ### IntelliJ IDEA integration
 - TODO
