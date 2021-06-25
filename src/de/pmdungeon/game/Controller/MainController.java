@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import de.pmdungeon.dungeonCreator.dungeonconverter.DungeonConverter;
 import de.pmdungeon.game.GameSetup;
 import de.pmdungeon.graphic.HUD;
-import de.pmdungeon.tools.Constants;
+import de.pmdungeon.tools.GlobalParameters;
 import de.pmdungeon.tools.DungeonCamera;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -74,7 +74,7 @@ public class MainController extends ScreenAdapter {
             // load first level
             firstFrame = false;
             try {
-                levelController.loadDungeon(new DungeonConverter().dungeonFromJson(Constants.getStartLevel()));
+                levelController.loadDungeon(new DungeonConverter().dungeonFromJson(GlobalParameters.getStartLevelFile()));
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
@@ -144,8 +144,8 @@ public class MainController extends ScreenAdapter {
      * Setting up the camera.
      */
     private void setupCamera() {
-        camera = new DungeonCamera(null, Constants.getVirtualHeight() * Constants.getWidth() / (float) Constants.getHeight(),
-                Constants.getVirtualHeight());
+        camera = new DungeonCamera(null, GlobalParameters.getVirtualHeight() * GlobalParameters.getWidth() / (float) GlobalParameters.getHeight(),
+                GlobalParameters.getVirtualHeight());
         camera.position.set(0, 0, 0);
         camera.zoom += 1;
         camera.update();

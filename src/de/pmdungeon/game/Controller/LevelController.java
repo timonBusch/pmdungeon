@@ -4,7 +4,7 @@ package de.pmdungeon.game.Controller;
 import de.pmdungeon.dungeonCreator.DungeonWorld;
 import de.pmdungeon.dungeonCreator.dungeonconverter.DungeonConverter;
 import de.pmdungeon.game.GameSetup;
-import de.pmdungeon.tools.Constants;
+import de.pmdungeon.tools.GlobalParameters;
 import de.pmdungeon.tools.Point;
 
 import java.lang.reflect.InvocationTargetException;
@@ -130,19 +130,19 @@ public class LevelController {
     private void nextStage() throws InvocationTargetException, IllegalAccessException {
         switch (nextStage) {
             case A:
-                loadDungeon(dungeonConverter.dungeonFromJson(Constants.getPathToLevel() + "small_dungeon.json"));
+                loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "small_dungeon.json"));
                 nextStage = Stage.B;
                 break;
             case B:
-                loadDungeon(dungeonConverter.dungeonFromJson(Constants.getPathToLevel() + "simple_dungeon_2.json"));
+                loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "simple_dungeon_2.json"));
                 nextStage = Stage.C;
                 break;
             case C:
-                loadDungeon(dungeonConverter.dungeonFromJson(Constants.getPathToLevel() + "simple_dungeon.json"));
+                loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "simple_dungeon.json"));
                 nextStage = Stage.D;
                 break;
             case D:
-                loadDungeon(dungeonConverter.dungeonFromJson(Constants.getPathToLevel() + "boss_dungeon.json"));
+                loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "boss_dungeon.json"));
                 nextStage = Stage.A;
                 break;
         }

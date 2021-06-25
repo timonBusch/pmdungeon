@@ -1,83 +1,88 @@
 package de.pmdungeon.tools;
 
 
-public class Constants {
+/**
+ * Contains the global Parameters of the program, to be altered with launch
+ * parameters.
+ * 
+ * @author Alesia
+ *
+ */
+public class GlobalParameters {
 	/**
 	 * Default name of the window
 	 */
 	private static String windowname = "PMDungeon";
-	
+
 	/**
 	 * Window default height
 	 */
 	private static int height = 480;
-	
+
 	/**
 	 * Window default width
 	 */
 	private static int width = 640;
-	
-	/**
-	 * Default start level of the dungeon
-	 */
-	private static String startLevel = Constants.pathToLevel+"small_dungeon.json";
-	
+
 	/**
 	 * Default asset path
 	 */
-	private static String pathToLevel = "assets/level/";
-	
+	private static String levelFolder = "assets/level/";
+
+	/**
+	 * Default start level of the dungeon
+	 */
+	private static String startLevelFile = GlobalParameters.levelFolder + "small_dungeon.json";
+
 	/**
 	 * Default framerate
 	 */
-	private static int frameRate = 30;
-	
+	private static int framesPerSecond = 30;
+
 	/**
 	 * Default virtual height
 	 */
 	private static float virtualHeight = 5;
-	
+
 	/**
 	 * Sets if window is resizable, default false
 	 */
 	private static boolean resizable = false;
-	
+
 	/**
 	 * Sets whether window should be fullscreen, default false
 	 */
 	private static boolean fullscreen = false;
-	
+
 	/**
 	 * @param resizable sets if window is resizable
 	 */
-    public static void setResizable(boolean resizable) {
-    	Constants.resizable = resizable;
-    }
-    
-    /**
-     * @return resizable checks whether the window is resizable
-     */
-    public static boolean isResizable() {
-    	return resizable;
-    }
+	public static void setResizable(boolean resizable) {
+		GlobalParameters.resizable = resizable;
+	}
 
-    /**
-     * 
-     * @return windowname returns name of window
-     */
+	/**
+	 * @return resizable checks whether the window is resizable
+	 */
+	public static boolean isResizable() {
+		return resizable;
+	}
+
+	/**
+	 * 
+	 * @return windowname returns name of window
+	 */
 	public static String getWindowname() {
 		return windowname;
 	}
-
 
 	/**
 	 * 
 	 * @param windowname sets name of window
 	 */
 	public static void setWindowname(String windowname) {
-		Constants.windowname = windowname;
+		GlobalParameters.windowname = windowname;
 	}
-
 
 	/**
 	 * 
@@ -87,15 +92,13 @@ public class Constants {
 		return height;
 	}
 
-
 	/**
 	 * 
 	 * @param height set height of window
 	 */
 	public static void setHeight(int height) {
-		Constants.height = height;
+		GlobalParameters.height = height;
 	}
-
 
 	/**
 	 * 
@@ -105,67 +108,60 @@ public class Constants {
 		return width;
 	}
 
-
 	/**
 	 * 
 	 * @param width set width of window
 	 */
 	public static void setWidth(int width) {
-		Constants.width = width;
+		GlobalParameters.width = width;
 	}
-
 
 	/**
 	 * 
-	 * @return startLevel returns path and name of starting level
+	 * @return startLevelFile returns path and name of starting level
 	 */
-	public static String getStartLevel() {
-		return startLevel;
+	public static String getStartLevelFile() {
+		return startLevelFile;
 	}
-
 
 	/**
 	 * 
-	 * @param startLevel sets start level filename
+	 * @param startLevelFile sets start level filename and adds the path
 	 */
-	public static void setStartLevel(String startLevel) {
-		Constants.startLevel = Constants.pathToLevel+startLevel;
+	public static void setStartLevelFile(String startLevelFile) {
+		GlobalParameters.startLevelFile = GlobalParameters.levelFolder + startLevelFile;
 	}
-
 
 	/**
 	 * 
-	 * @return pathToLevel returns path to level assets
+	 * @return levelFolder returns path to the folder containing level assets
 	 */
-	public static String getPathToLevel() {
-		return pathToLevel;
+	public static String getLevelFolder() {
+		return levelFolder;
 	}
-
 
 	/**
 	 * 
 	 * @param pathToLevel sets path to level assets
 	 */
-	public static void setPathToLevel(String pathToLevel) {
-		Constants.pathToLevel = pathToLevel;
+	public static void setLevelFolder(String pathToLevel) {
+		GlobalParameters.levelFolder = pathToLevel;
 	}
-
 
 	/**
 	 * 
-	 * @return framerate returns the framerate
+	 * @return framesPerSecond returns the framerate in frames per second
 	 */
-	public static int getFrameRate() {
-		return frameRate;
+	public static int getFramesPerSecond() {
+		return framesPerSecond;
 	}
-
 
 	/**
 	 * 
-	 * @param frameRate sets the framerate
+	 * @param framesPerSecond sets the framerate in frames per second
 	 */
-	public static void setFrameRate(int frameRate) {
-		Constants.frameRate = frameRate;
+	public static void setFramesPerSecond(int framesPerSecond) {
+		GlobalParameters.framesPerSecond = framesPerSecond;
 	}
 
 	/**
@@ -181,7 +177,7 @@ public class Constants {
 	 * @param virtualHeight sets virtual height
 	 */
 	public static void setVirtualHeight(float virtualHeight) {
-		Constants.virtualHeight = virtualHeight;
+		GlobalParameters.virtualHeight = virtualHeight;
 	}
 
 	/**
@@ -191,14 +187,13 @@ public class Constants {
 	public static boolean isFullscreen() {
 		return fullscreen;
 	}
-	
+
 	/**
 	 * 
 	 * @param fullscreen sets whether window should be fullscreen
 	 */
 	public static void setFullscreen(boolean fullscreen) {
-		Constants.fullscreen = fullscreen;
+		GlobalParameters.fullscreen = fullscreen;
 	}
-
 
 }

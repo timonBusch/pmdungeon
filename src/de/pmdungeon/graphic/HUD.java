@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import de.pmdungeon.interfaces.IHUDElement;
-import de.pmdungeon.tools.Constants;
+import de.pmdungeon.tools.GlobalParameters;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,8 +101,8 @@ public class HUD extends Stage {
     public void resize() {
         if (usePixelSystem)
             return;
-        hudCamera.setToOrtho(false, Constants.getVirtualHeight()* Constants.getWidth() / (float) Constants.getHeight(),
-                Constants.getVirtualHeight());
+        hudCamera.setToOrtho(false, GlobalParameters.getVirtualHeight()* GlobalParameters.getWidth() / (float) GlobalParameters.getHeight(),
+                GlobalParameters.getVirtualHeight());
         hudBatch.setProjectionMatrix(hudCamera.combined);
     }
 
