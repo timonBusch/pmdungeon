@@ -32,7 +32,7 @@ public class GlobalParameters {
 	/**
 	 * Default start level of the dungeon
 	 */
-	private static String startLevelFile = GlobalParameters.levelFolder + "small_dungeon.json";
+	private static String firstLevelFile = GlobalParameters.levelFolder + "small_dungeon.json";
 
 	/**
 	 * Default framerate
@@ -121,7 +121,7 @@ public class GlobalParameters {
 	 * @return startLevelFile returns path and name of starting level
 	 */
 	public static String getStartLevelFile() {
-		return startLevelFile;
+		return firstLevelFile;
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class GlobalParameters {
 	 * @param startLevelFile sets start level filename and adds the path
 	 */
 	public static void setStartLevelFile(String startLevelFile) {
-		GlobalParameters.startLevelFile = GlobalParameters.levelFolder + startLevelFile;
+		GlobalParameters.firstLevelFile = GlobalParameters.levelFolder + startLevelFile;
 	}
 
 	/**

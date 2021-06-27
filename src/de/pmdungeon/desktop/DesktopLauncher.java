@@ -24,7 +24,7 @@ public class DesktopLauncher {
 	 * -h Height of the window in px 
 	 * -w Width of the window in px 
 	 * -lf Path to folder containing level assets
-	 * -slf file name of starting level 
+	 * -fl file name of starting level 
 	 * -fps frame rate the program runs at in frames per second 
 	 * -vh Virtual height 
 	 * -re Sets whether the window is resizable 
@@ -37,7 +37,7 @@ public class DesktopLauncher {
 		Option height = new Option("h", "height", true, "Window height in px");
 		Option width = new Option("w", "width", true, "Window width in px");
 		Option ptl = new Option("lf", "levelFolder", true, "Defines location of level assets");
-		Option sl = new Option("slf", "startLevelFile", true, "Defines the starting level asset");
+		Option sl = new Option("fl", "firstLevelFile", true, "Defines the starting level asset");
 		Option fps = new Option("fps", "framesPerSecond", true, "Defines the frames per second the software runs at");
 		Option virtualHeight = new Option("vh", "virtualHeight", true, "Defines the Virtual height");
 		Option resizable = new Option("re", "resizable", true, "Resizable true/false, defaults to false");
@@ -59,7 +59,6 @@ public class DesktopLauncher {
 			try {
 				GlobalParameters.setHeight((int) cmd.getParsedOptionValue("height"));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -67,7 +66,6 @@ public class DesktopLauncher {
 			try {
 				GlobalParameters.setWidth((int) cmd.getParsedOptionValue("width"));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -75,7 +73,6 @@ public class DesktopLauncher {
 			try {
 				GlobalParameters.setLevelFolder((String) cmd.getParsedOptionValue("ptl"));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -83,7 +80,6 @@ public class DesktopLauncher {
 			try {
 				GlobalParameters.setStartLevelFile((String) cmd.getParsedOptionValue("sl"));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -91,7 +87,6 @@ public class DesktopLauncher {
 			try {
 				GlobalParameters.setFramesPerSecond((int) cmd.getParsedOptionValue("fr"));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -99,7 +94,6 @@ public class DesktopLauncher {
 			try {
 				GlobalParameters.setVirtualHeight((int) cmd.getParsedOptionValue("vh"));
 			} catch (ParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
