@@ -144,8 +144,8 @@ public class MainController extends ScreenAdapter {
      * Setting up the camera.
      */
     private void setupCamera() {
-        camera = new DungeonCamera(null, GlobalParameters.getVirtualHeight() * GlobalParameters.getWidth() / (float) GlobalParameters.getHeight(),
-                GlobalParameters.getVirtualHeight());
+        camera = new DungeonCamera(null, GlobalParameters.getVirtualHeight() * GlobalParameters.getWidth()
+                / (float) GlobalParameters.getHeight(), GlobalParameters.getVirtualHeight());
         camera.position.set(0, 0, 0);
         camera.zoom += 1;
         camera.update();

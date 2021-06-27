@@ -17,9 +17,7 @@ import de.pmdungeon.tools.GlobalParameters;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Holds the HUD.
- */
+/** Holds the HUD. */
 public class HUD extends Stage {
     private final SpriteBatch hudBatch;
     private final OrthographicCamera hudCamera;
@@ -63,9 +61,7 @@ public class HUD extends Stage {
             this.hudElements.remove(element);
     }
 
-    /**
-     * Main loop of the hud.
-     */
+    /** Main loop of the hud. */
     public void draw() {
         if (!usePixelSystem) {
             hudCamera.update();
@@ -75,12 +71,9 @@ public class HUD extends Stage {
         resize();
         super.act();
         super.draw();
-
     }
 
-    /**
-     * Draws all the elements
-     */
+    /** Draws all the elements */
     private void drawElements() {
         for (IHUDElement element : hudElements) {
             Texture texture = element.getTexture();
@@ -91,25 +84,22 @@ public class HUD extends Stage {
             hudBatch.begin();
             sprite.draw(hudBatch);
             hudBatch.end();
-
         }
     }
 
-    /**
-     * Resizing the camera according to the size of the window.
-     */
+    /** Resizing the camera according to the size of the window. */
     public void resize() {
         if (usePixelSystem)
             return;
-        hudCamera.setToOrtho(false, GlobalParameters.getVirtualHeight()* GlobalParameters.getWidth() / (float) GlobalParameters.getHeight(),
-                GlobalParameters.getVirtualHeight());
+        hudCamera.setToOrtho(false, GlobalParameters.getVirtualHeight() * GlobalParameters.getWidth()
+                / (float) GlobalParameters.getHeight(), GlobalParameters.getVirtualHeight());
         hudBatch.setProjectionMatrix(hudCamera.combined);
     }
 
     public SpriteBatch getHudBatch() {
         return this.hudBatch;
     }
-    
+
     /**
      * Draws a given text on the screen.
      *

@@ -1,6 +1,5 @@
 package de.pmdungeon.game.Controller;
 
-
 import de.pmdungeon.dungeonCreator.DungeonWorld;
 import de.pmdungeon.dungeonCreator.dungeonconverter.DungeonConverter;
 import de.pmdungeon.game.GameSetup;
@@ -9,7 +8,6 @@ import de.pmdungeon.tools.Point;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
 
 /**
  * Use this to control the level itself.
@@ -20,7 +18,8 @@ public class LevelController {
      */
     private final Method onLevelLoad;
     /**
-     * Instance of the class that contains onLevelLoad (should be MainGameController)
+     * Instance of the class that contains onLevelLoad (should be
+     * MainGameController)
      */
     private final Object klass;
     /**
@@ -43,7 +42,6 @@ public class LevelController {
      * the next level
      */
     private Stage nextStage = Stage.A;
-
 
     /**
      * @param onLevelLoad Method that will be called if a new level get load
@@ -71,11 +69,10 @@ public class LevelController {
     }
 
     /**
-     * If next level is triggered, this will load it.
-     * Also draws the level.
+     * If next level is triggered, this will load it. Also draws the level.
      */
     public void update() {
-        //load next stage if triggered
+        // load next stage if triggered
         if (nextLevelTriggered) {
             try {
                 nextStage();
@@ -95,7 +92,8 @@ public class LevelController {
      * @return result of check
      */
     public boolean checkForTrigger(Point p) {
-        return (int) p.x == dungeonWorld.getNextLevelTrigger().getX() && (int) p.y == dungeonWorld.getNextLevelTrigger().getY();
+        return (int) p.x == dungeonWorld.getNextLevelTrigger().getX()
+                && (int) p.y == dungeonWorld.getNextLevelTrigger().getY();
     }
 
     /**
@@ -118,33 +116,34 @@ public class LevelController {
      * Draws the dungeon itself.
      */
     public void draw() {
-        if (dungeonWorld == null) return;
+        if (dungeonWorld == null)
+            return;
         dungeonWorld.renderFloor(GameSetup.batch);
         dungeonWorld.renderWalls(dungeonWorld.getHeight() - 1, 0, GameSetup.batch);
     }
-    //Switch dungeon.
+    // Switch dungeon.
 
     /**
      * If next stage is triggered, change the dungeon.
      */
     private void nextStage() throws InvocationTargetException, IllegalAccessException {
         switch (nextStage) {
-            case A:
-                loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "small_dungeon.json"));
-                nextStage = Stage.B;
-                break;
-            case B:
-                loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "simple_dungeon_2.json"));
-                nextStage = Stage.C;
-                break;
-            case C:
-                loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "simple_dungeon.json"));
-                nextStage = Stage.D;
-                break;
-            case D:
-                loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "boss_dungeon.json"));
-                nextStage = Stage.A;
-                break;
+        case A:
+            loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "small_dungeon.json"));
+            nextStage = Stage.B;
+            break;
+        case B:
+            loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "simple_dungeon_2.json"));
+            nextStage = Stage.C;
+            break;
+        case C:
+            loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "simple_dungeon.json"));
+            nextStage = Stage.D;
+            break;
+        case D:
+            loadDungeon(dungeonConverter.dungeonFromJson(GlobalParameters.getLevelFolder() + "boss_dungeon.json"));
+            nextStage = Stage.A;
+            break;
         }
     }
 
@@ -152,9 +151,6 @@ public class LevelController {
      * used to manage nextStage()
      */
     enum Stage {
-        A,
-        B,
-        C,
-        D
+        A, B, C, D
     }
 }
