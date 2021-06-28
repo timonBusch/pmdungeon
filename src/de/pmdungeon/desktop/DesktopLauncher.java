@@ -118,6 +118,8 @@ public class DesktopLauncher {
         // appropriately sets borderless window mode if toggled
         if (GlobalParameters.isFullscreen()) {
             config.setFullscreenMode(Lwjgl3ApplicationConfiguration.getDisplayMode());
+            GlobalParameters.setHeight(Lwjgl3ApplicationConfiguration.getDisplayMode().height);
+            GlobalParameters.setWidth(Lwjgl3ApplicationConfiguration.getDisplayMode().width);
         } else {
             config.setWindowedMode(GlobalParameters.getWidth(), GlobalParameters.getHeight());
             config.setResizable(GlobalParameters.isResizable());
