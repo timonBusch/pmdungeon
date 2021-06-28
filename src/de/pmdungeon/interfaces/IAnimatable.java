@@ -6,11 +6,11 @@ import de.pmdungeon.graphic.Animation;
 /** Should be implemented by all objects that have an animation */
 public interface IAnimatable extends IDrawable {
 
-  /** @return the current active animation (example idle or run) */
-  Animation getActiveAnimation();
+    /** @return the current active animation (example idle or run) */
+    Animation getActiveAnimation();
 
-  @Override
-  default Texture getTexture() {
-    return this.getActiveAnimation().getNextAnimationTexture();
-  }
+    @Override
+    default Texture getTexture() {
+        return this.getActiveAnimation().getNextAnimationTexture();
+    }
 }

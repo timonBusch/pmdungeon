@@ -24,13 +24,43 @@ lang: en-EN
 
 TODO
 
-### ANT
-- You have to add or modify your main class in the `build.xml` file at line 17. Run `ant init-ivy` once in your project folder, to initialize ivy, then use `ant compile-run` to compile your sources and to start the game.
+### Ant
+- OS-dependent prerequisites:
+  - See [here](https://ant.apache.org/manual/install.html)
+- General prerequisites:
+  - Adapt settings in `build.xml` (property `main-class`) to reflect your main class
+  - Run `ant init-ivy` once in your project folder to download and install ivy
+- Use `ant compile-run` to compile your sources and to start the game
 
 ### Maven
-- First run `mvn clean compile` in your project folder, then use `mvn exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"` to start the game.
+- OS-dependent prerequisites:
+  - See [here](https://maven.apache.org/install.html)
+- Run `mvn clean compile` in your project folder to clean old builds and to compile your sources 
+- Use `mvn exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"` to start the game (replace `PACKAGE.MAIN` with your main class)
+- You can optionally call all goals at once: `mvn clean compile exec:java -Dexec.mainClass="de.pmdungeon.PACKAGE.MAIN"`
 
 ### Gradle
+- General prerequisites:
+  - You don't need to install Gradle because you can use the Gradle wrapper provided in this project/repo
+  - Adapt settings in `build.gradle` (property `mainClassName`) to reflect your main class
+- Use `gradlew run` to compile your sources and to start the game
+
+### Eclipse integration
+- Maven project integration:
+  - Open Eclipse and your workspace
+  - Right click in project explorer and choose `Import...`
+  - Choose `Existing Maven Projects`
+  - Choose the root directory and pick the `pom.xml`
+  - Click `Finish`
+- Gradle project integration:
+  - Open Eclipse and your workspace
+  - Right click in project explorer and choose `Import...`
+  - Choose `Existing Gradle Project`
+  - Skip Welcome
+  - Choose the project root directory
+  - Click `Finish`
+
+### IntelliJ IDEA integration
 - TODO
 
 This manual helps you to set up a basic implementation using this project.
