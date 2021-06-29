@@ -1,66 +1,48 @@
-## Java Files
+### Java Files ###
 *.class
-*.log
 *.ctxt
-*.jar
-*.war
-*.nar
 *.ear
-*.zip
-*.tar.gz
+*.jar
+*.log
+*.nar
 *.rar
+*.tar
+*.tar.gz
+*.war
+*.zip
 hs_err_pid*
 
-## Ant, Gradle and Maven
-assets
-build
-lib
-libs
-target
-.gradle
-local.properties
+### Ant, Gradle and Maven ###
 gradle-app.setting
+local.properties
+.gradle/
+assets/
+build/
+lib/
+libs/
+target/
 
-## Eclipse
+### Eclipse ###
+*.bak
+*.launch
+*.swp
+*.tmp
 .classpath
 .loadpath
 .project
+.externalToolBuilders/
 .metadata/
 .settings/
-.externalToolBuilders/
-*.tmp
-*.bak
-*.swp
-*.launch
 
-## Intellij
-.idea/
+### Intellij ###
+*.iml
 *.ipr
 *.iws
-*.iml
-/out
+.idea/
+out/
 
-## NetBeans
-/nbproject/
-/nbbuild/
-/dist/
-/nbdist/
-nbactions.xml
-nb-configuration.xml
-
-## OS Specific
-.DS_Store
-Thumbs.db
-
-## iOS
-/ios/xcode/*.xcodeproj/*
-!/ios/xcode/*.xcodeproj/xcshareddata
-!/ios/xcode/*.xcodeproj/project.pbxproj
-/ios/xcode/native/
-/ios/IOSLauncher.app
-/ios/IOSLauncher.app.dSYM
-
-/ios-moe/xcode/*.xcodeproj/*
-!/ios-moe/xcode/*.xcodeproj/xcshareddata
-!/ios-moe/xcode/*.xcodeproj/project.pbxproj
-/ios-moe/xcode/native/
+### NetBeans ###
+dist/
+nbbuild/
+nbdist/
+nbproject/
