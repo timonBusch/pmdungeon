@@ -1,6 +1,7 @@
 package de.pmdungeon.tools;
 
 import java.nio.file.Paths;
+
 /**
  * Contains the global Parameters of the program, to be altered with launch
  * parameters.
