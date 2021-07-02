@@ -56,42 +56,47 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setHeight((int) cmd.getParsedOptionValue("height"));
             } catch (ParseException e) {
-                System.out.println("Invalid Parameter for option Height. Using default value.");
+                System.out.println(
+                        "Invalid Parameter for option Height. " + e.getMessage() + "Using default value instead.");
             }
         }
         if (cmd.hasOption("w")) {
             try {
                 GlobalParameters.setWidth((int) cmd.getParsedOptionValue("width"));
             } catch (ParseException e) {
-                System.out.println("Invalid Parameter for option Width. Using default value.");
+                System.out.println(
+                        "Invalid Parameter for option Width. " + e.getMessage() + "Using default value instead.");
             }
         }
         if (cmd.hasOption("lf")) {
             try {
                 GlobalParameters.setLevelFolder((String) cmd.getParsedOptionValue("lf"));
             } catch (ParseException e) {
-                System.out.println("Invalid Path to level folder. Using default value.");
+                System.out.println("Invalid Path to level folder. " + e.getMessage() + "Using default value instead.");
             }
         }
         if (cmd.hasOption("fl")) {
             try {
                 GlobalParameters.setStartLevelFile((String) cmd.getParsedOptionValue("fl"));
             } catch (ParseException e) {
-                System.out.println("Invalid file name/path for starting level. Using default value.");
+                System.out.println("Invalid file name/path for starting level. " + e.getMessage()
+                        + "Using default value instead.");
             }
         }
         if (cmd.hasOption("fps")) {
             try {
                 GlobalParameters.setFramesPerSecond((int) cmd.getParsedOptionValue("fps"));
             } catch (ParseException e) {
-                System.out.println("Invalid Parameter for option Frames per Second. Using default value.");
+                System.out.println("Invalid Parameter for option Frames per Second. " + e.getMessage()
+                        + "Using default value instead.");
             }
         }
         if (cmd.hasOption("vh")) {
             try {
                 GlobalParameters.setVirtualHeight((int) cmd.getParsedOptionValue("vh"));
             } catch (ParseException e) {
-                System.out.println("Invalid Parameter for option Virtual Height. Using default value.");
+                System.out.println("Invalid Parameter for option Virtual Height. " + e.getMessage()
+                        + "Using default value instead.");
             }
         }
         if (cmd.hasOption("re")) {
