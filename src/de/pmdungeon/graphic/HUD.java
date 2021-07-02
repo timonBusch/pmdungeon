@@ -89,11 +89,13 @@ public class HUD extends Stage {
 
     /** Resizing the camera according to the size of the window. */
     public void resize() {
-        if (usePixelSystem)
+        if (usePixelSystem) {
+            hudCamera.setToOrtho(false, GlobalParameters.getVirtualHeight() * GlobalParameters.getWidth()
+                    / (float) GlobalParameters.getHeight(), GlobalParameters.getVirtualHeight());
+            hudBatch.setProjectionMatrix(hudCamera.combined);
+        } else {
             return;
-        hudCamera.setToOrtho(false, GlobalParameters.getVirtualHeight() * GlobalParameters.getWidth()
-                / (float) GlobalParameters.getHeight(), GlobalParameters.getVirtualHeight());
-        hudBatch.setProjectionMatrix(hudCamera.combined);
+        }
     }
 
     public SpriteBatch getHudBatch() {

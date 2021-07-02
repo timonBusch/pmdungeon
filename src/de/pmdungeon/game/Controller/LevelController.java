@@ -115,10 +115,12 @@ public class LevelController {
      * Draws the dungeon itself.
      */
     public void draw() {
-        if (dungeonWorld == null)
+        if (dungeonWorld != null) {
+            dungeonWorld.renderFloor(GameSetup.batch);
+            dungeonWorld.renderWalls(dungeonWorld.getHeight() - 1, 0, GameSetup.batch);
+        } else {
             return;
-        dungeonWorld.renderFloor(GameSetup.batch);
-        dungeonWorld.renderWalls(dungeonWorld.getHeight() - 1, 0, GameSetup.batch);
+        }
     }
     // Switch dungeon.
 
