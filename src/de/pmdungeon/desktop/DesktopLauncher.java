@@ -18,16 +18,14 @@ public class DesktopLauncher {
 
     /**
      * Runs the dungeon.
-     *  @param mc   MainController of the Dungeon
-     * @param args Launch parameters to override the default values 
-     * -h Height of the window in px 
-     * -w Width of the window in px 
-     * -lf Path to folder containing level assets
-     * -fl file name of starting level 
-     * -fps frame rate the program runs at in frames per second 
-     * -vh Virtual height 
-     * -re Sets whether the window is resizable 
-     * -fs Sets the program to be fullscreen    
+     * 
+     * @param mc   MainController of the Dungeon
+     * @param args Launch parameters to override the default values -h Height of the
+     *             window in px -w Width of the window in px -lf Path to folder
+     *             containing level assets -fl file name of starting level -fps
+     *             frame rate the program runs at in frames per second -vh Virtual
+     *             height -re Sets whether the window is resizable -fs Sets the
+     *             program to be fullscreen
      */
     public static void run(MainController mc, String[] args) {
 
@@ -39,8 +37,8 @@ public class DesktopLauncher {
         Option sl = new Option("fl", "firstLevelFile", true, "Defines the starting level asset");
         Option fps = new Option("fps", "framesPerSecond", true, "Defines the frames per second the software runs at");
         Option virtualHeight = new Option("vh", "virtualHeight", true, "Defines the Virtual height");
-        Option resizable = new Option("re", "resizable", true, "Resizable true/false, defaults to false");
-        Option fullscreen = new Option("fs", "fullscreen", true, "Fullscreen true/false, defaults to false");
+        Option resizable = new Option("re", "resizable", true, "Resizable true, defaults to false, true when set");
+        Option fullscreen = new Option("fs", "fullscreen", true, "Fullscreen true, defaults to false, true when set");
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         CommandLine cmd = null;
@@ -58,57 +56,50 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setHeight((int) cmd.getParsedOptionValue("height"));
             } catch (ParseException e) {
-                e.printStackTrace();
+                System.out.println("Invalid Parameter for option Height. Using default value.");
             }
         }
         if (cmd.hasOption("w")) {
             try {
                 GlobalParameters.setWidth((int) cmd.getParsedOptionValue("width"));
             } catch (ParseException e) {
-                e.printStackTrace();
+                System.out.println("Invalid Parameter for option Width. Using default value.");
             }
         }
-        if (cmd.hasOption("ptl")) {
+        if (cmd.hasOption("lf")) {
             try {
-                GlobalParameters.setLevelFolder((String) cmd.getParsedOptionValue("ptl"));
+                GlobalParameters.setLevelFolder((String) cmd.getParsedOptionValue("lf"));
             } catch (ParseException e) {
-                e.printStackTrace();
+                System.out.println("Invalid Path to level folder. Using default value.");
             }
         }
-        if (cmd.hasOption("sl")) {
+        if (cmd.hasOption("fl")) {
             try {
-                GlobalParameters.setStartLevelFile((String) cmd.getParsedOptionValue("sl"));
+                GlobalParameters.setStartLevelFile((String) cmd.getParsedOptionValue("fl"));
             } catch (ParseException e) {
-                e.printStackTrace();
+                System.out.println("Invalid file name/path for starting level. Using default value.");
             }
         }
-        if (cmd.hasOption("fr")) {
+        if (cmd.hasOption("fps")) {
             try {
-                GlobalParameters.setFramesPerSecond((int) cmd.getParsedOptionValue("fr"));
+                GlobalParameters.setFramesPerSecond((int) cmd.getParsedOptionValue("fps"));
             } catch (ParseException e) {
-                e.printStackTrace();
+                System.out.println("Invalid Parameter for option Frames per Second. Using default value.");
             }
         }
         if (cmd.hasOption("vh")) {
             try {
                 GlobalParameters.setVirtualHeight((int) cmd.getParsedOptionValue("vh"));
             } catch (ParseException e) {
-                e.printStackTrace();
+                System.out.println("Invalid Parameter for option Virtual Height. Using default value.");
             }
         }
         if (cmd.hasOption("re")) {
-            if (cmd.getOptionValue("re") == "true") {
-                GlobalParameters.setResizable(true);
-            } else {
-                GlobalParameters.setResizable(false);
-            }
+            GlobalParameters.setResizable(true);
+
         }
         if (cmd.hasOption("fs")) {
-            if (cmd.getOptionValue("fs") == "true") {
-                GlobalParameters.setFullscreen(true);
-            } else {
-                GlobalParameters.setFullscreen(false);
-            }
+            GlobalParameters.setFullscreen(true);
         }
 
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
