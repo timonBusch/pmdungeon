@@ -3,8 +3,6 @@ package de.pmdungeon.tools;
 /**
  * Contains the global Parameters of the program, to be altered with launch
  * parameters.
- * 
- * @author Alesia
  *
  */
 public class GlobalParameters {

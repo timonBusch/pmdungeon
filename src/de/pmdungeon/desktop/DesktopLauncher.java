@@ -10,8 +10,6 @@ import org.apache.commons.cli.*;
 
 /**
  * Contains the logic to run the dungeon, and to parse the launch parameters.
- * 
- * @author Alesia
  *
  */
 public class DesktopLauncher {
