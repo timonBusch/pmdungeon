@@ -1,5 +1,6 @@
 package de.pmdungeon.tools;
 
+import java.nio.file.Paths;
 /**
  * Contains the global Parameters of the program, to be altered with launch
  * parameters.
@@ -126,7 +127,7 @@ public class GlobalParameters {
      * @param startLevelFile sets start level filename and adds the path
      */
     public static void setStartLevelFile(String startLevelFile) {
-        GlobalParameters.firstLevelFile = GlobalParameters.levelFolder + startLevelFile;
+        Paths.get(GlobalParameters.levelFolder, startLevelFile).toString();
     }
 
     /**
