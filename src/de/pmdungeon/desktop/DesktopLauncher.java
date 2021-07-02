@@ -5,7 +5,6 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import de.pmdungeon.game.Controller.MainController;
 import de.pmdungeon.game.GameSetup;
 import de.pmdungeon.tools.GlobalParameters;
-
 import org.apache.commons.cli.*;
 
 /**
@@ -18,12 +17,15 @@ public class DesktopLauncher {
      * Runs the dungeon.
      * 
      * @param mc   MainController of the Dungeon
-     * @param args Launch parameters to override the default values -h Height of the
-     *             window in px -w Width of the window in px -lf Path to folder
-     *             containing level assets -fl file name of starting level -fps
-     *             frame rate the program runs at in frames per second -vh Virtual
-     *             height -re Sets whether the window is resizable -fs Sets the
-     *             program to be fullscreen
+     * @param args Launch parameters to override the default values 
+     * -h Height of the window in px 
+     * -w Width of the window in px 
+     * -lf Path to folder containing level assets 
+     * -fl file name of starting level 
+     * -fps frame rate the program runs at in frames per second 
+     * -vh Virtual height 
+     * -re Sets whether the window is resizable 
+     * -fs Sets the program to be fullscreen
      */
     public static void run(MainController mc, String[] args) {
 
