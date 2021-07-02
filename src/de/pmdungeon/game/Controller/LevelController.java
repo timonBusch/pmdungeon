@@ -5,7 +5,6 @@ import de.pmdungeon.dungeonCreator.dungeonconverter.DungeonConverter;
 import de.pmdungeon.game.GameSetup;
 import de.pmdungeon.tools.GlobalParameters;
 import de.pmdungeon.tools.Point;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 

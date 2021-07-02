@@ -74,7 +74,8 @@ public class MainController extends ScreenAdapter {
             // load first level
             firstFrame = false;
             try {
-                levelController.loadDungeon(new DungeonConverter().dungeonFromJson(GlobalParameters.getStartLevelFile()));
+                levelController
+                        .loadDungeon(new DungeonConverter().dungeonFromJson(GlobalParameters.getStartLevelFile()));
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
