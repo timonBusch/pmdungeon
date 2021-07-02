@@ -10,8 +10,10 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+
 import de.pmdungeon.interfaces.IHUDElement;
 import de.pmdungeon.tools.GlobalParameters;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,6 +103,38 @@ public class HUD extends Stage {
     /**
      * Draws a given text on the screen.
      *
+     * @param text        text to draw
+     * @param fontPath    font to use
+     * @param color       color to use
+     * @param size        font size to use
+     * @param width       width of the text box
+     * @param height      height of the text box
+     * @param x           x-position in pixel
+     * @param y           y-position in pixel
+     * @param borderWidth borderWidth for the text
+     * @return Label (use this to alter text or remove the text later)
+     */
+    public Label drawText(String text, String fontPath, Color color, int size, int width, int height, int x, int y,
+            int borderWidth) {
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fontPath));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = size;
+        parameter.borderWidth = borderWidth;
+        parameter.color = color;
+        Label.LabelStyle labelStyle = new Label.LabelStyle();
+        labelStyle.font = generator.generateFont(parameter);
+        generator.dispose();
+        Label label = new Label(text, labelStyle);
+        label.setSize(width, height);
+        label.setPosition(x, y);
+
+        this.addActor(label);
+        return label;
+    }
+
+    /**
+     * Draws a given text on the screen.
+     *
      * @param text     text to draw
      * @param fontPath font to use
      * @param color    color to use
@@ -112,19 +146,6 @@ public class HUD extends Stage {
      * @return Label (use this to alter text or remove the text later)
      */
     public Label drawText(String text, String fontPath, Color color, int size, int width, int height, int x, int y) {
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fontPath));
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = size;
-        parameter.borderWidth = 1;
-        parameter.color = color;
-        Label.LabelStyle labelStyle = new Label.LabelStyle();
-        labelStyle.font = generator.generateFont(parameter);
-        generator.dispose();
-        Label label = new Label(text, labelStyle);
-        label.setSize(width, height);
-        label.setPosition(x, y);
-
-        this.addActor(label);
-        return label;
+        return this.drawText(text, fontPath, color, size, width, height, x, y, 1);
     }
 }
