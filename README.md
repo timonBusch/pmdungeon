@@ -61,7 +61,15 @@ TODO
   - Click `Finish`
 
 ### IntelliJ IDEA integration
-- TODO
+- Project integration:
+	- If no project is opened in IntelliJ IDEA, then Left click on `Open`. Otherwise Left click on `File` choose `Open`
+	- Choose the project root directory
+	- Choose `Gradle project` or `Maven project`
+	- Choose `Trust Project`
+	- Choose `This Windows` or `new Windows`
+	
+### Mac OS
+- If you use Mac OS, you must add the VM-Argument `-XstartOnFirstThread`
 
 This manual helps you to set up a basic implementation using this project.
 - [German Manual](./docs/manual_DE.md)
