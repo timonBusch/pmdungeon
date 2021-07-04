@@ -68,7 +68,7 @@ TODO
 	- Choose `Trust Project`
 	- Choose `This Window` or `new Window`
 	
-### Mac OS
+### macOS
 - If you use macOS, you must add the VM-Argument `-XstartOnFirstThread` in your IDE.
 	- For Eclipse:
 		- Right click in project explorer and choose `Run As`
