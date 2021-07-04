@@ -1,5 +1,8 @@
 package de.pmdungeon.graphic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -13,9 +16,6 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import de.pmdungeon.interfaces.IHUDElement;
 import de.pmdungeon.tools.GlobalParameters;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /** Holds the HUD. */
 public class HUD extends Stage {
@@ -57,8 +57,9 @@ public class HUD extends Stage {
      * @param element element to remove
      */
     public void removeHudElement(IHUDElement element) {
-        if (hudElements.contains(element))
+        if (hudElements.contains(element)) {
             this.hudElements.remove(element);
+        }
     }
 
     /** Main loop of the hud. */

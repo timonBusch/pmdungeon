@@ -1,16 +1,19 @@
 package de.pmdungeon.game.Controller;
 
+import static com.badlogic.gdx.graphics.GL20.GL_COLOR_BUFFER_BIT;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
 import de.pmdungeon.dungeonCreator.dungeonconverter.DungeonConverter;
 import de.pmdungeon.game.GameSetup;
 import de.pmdungeon.graphic.HUD;
-import de.pmdungeon.tools.GlobalParameters;
 import de.pmdungeon.tools.DungeonCamera;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import static com.badlogic.gdx.graphics.GL20.GL_COLOR_BUFFER_BIT;
+import de.pmdungeon.tools.GlobalParameters;
 
 /**
  * Controls the game. Setup for all important objects. Contains Gameloop.

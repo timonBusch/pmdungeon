@@ -1,7 +1,8 @@
 package de.pmdungeon.game.Controller;
 
-import de.pmdungeon.interfaces.IEntity;
 import java.util.ArrayList;
+
+import de.pmdungeon.interfaces.IEntity;
 
 /** Handles every entity in the dungeon. */
 public class EntityController {
@@ -28,8 +29,7 @@ public class EntityController {
      * @param entity
      */
     public void addEntity(IEntity entity) {
-        if (!dungeonEntities.contains(entity))
-            this.dungeonEntities.add(entity);
+        this.dungeonEntities.add(entity);
     }
 
     /**
@@ -38,8 +38,7 @@ public class EntityController {
      * @param entity
      */
     public void removeEntity(IEntity entity) {
-        if (dungeonEntities.contains(entity))
-            this.dungeonEntities.remove(entity);
+        this.dungeonEntities.remove(entity);
     }
 
     /** removes all entities from the list */
