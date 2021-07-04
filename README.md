@@ -69,21 +69,21 @@ TODO
 	- Choose `This Window` or `new Window`
 	
 ### Mac OS
-- If you use Mac OS, you must add the VM-Argument `-XstartOnFirstThread` in your IDE.
-	- In Eclipse:
+- If you use macOS, you must add the VM-Argument `-XstartOnFirstThread` in your IDE.
+	- For Eclipse:
 		- Right click in project explorer and choose `Run As`
 		- Choose `Run Configurations...`
 		- Left click on `Arguments`
 		- In the `VM arguments:` add `-XstartOnFirstThread`
 		- Click `Run`
-	- In IntelliJ IDEA
+	- For IntelliJ IDEA:
 		- Left click on `Edit Configurations...`
 		- Left click on `+`
 		- Choose `Application`
 		- Set a name
 		- Left click on `Modify options` and choose `Add VM options`
-		- By `VM options` you add `-XstartOnFirstThread`
-		- By `Main Class` you add the main Class from the project root directory
+		- For `VM options` you add `-XstartOnFirstThread`
+		- For `Main Class` you add the main Class from the project root directory
 		- Left click on `module not specified` and choose a JDK like `16`
 		- Left click on `<no module>` and choose the your project name
 		- Click `OK`
