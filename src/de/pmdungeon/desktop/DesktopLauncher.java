@@ -1,5 +1,8 @@
 package de.pmdungeon.desktop;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
@@ -20,6 +23,7 @@ import de.pmdungeon.tools.GlobalParameters;
  *
  */
 public class DesktopLauncher {
+    private static final Logger LOGGER = Logger.getLogger(DesktopLauncher.class.getName());
 
     /**
      * Runs the dungeon.
@@ -33,7 +37,6 @@ public class DesktopLauncher {
      *             program to be fullscreen
      */
     public static void run(MainController mc, String[] args) {
-
         Options options = new Options();
 
         Option height = new Option("h", "height", true, "Window height in px");
@@ -61,7 +64,7 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setHeight((int) cmd.getParsedOptionValue("height"));
             } catch (ParseException e) {
-                System.out.println(
+                LOGGER.log(Level.FINE,
                         "Invalid Parameter for option Height. " + e.getMessage() + "Using default value instead.");
             }
         }
@@ -69,7 +72,7 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setWidth((int) cmd.getParsedOptionValue("width"));
             } catch (ParseException e) {
-                System.out.println(
+                LOGGER.log(Level.FINE,
                         "Invalid Parameter for option Width. " + e.getMessage() + "Using default value instead.");
             }
         }
@@ -77,14 +80,15 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setLevelFolder((String) cmd.getParsedOptionValue("lf"));
             } catch (ParseException e) {
-                System.out.println("Invalid Path to level folder. " + e.getMessage() + "Using default value instead.");
+                LOGGER.log(Level.FINE,
+                        "Invalid Path to level folder. " + e.getMessage() + "Using default value instead.");
             }
         }
         if (cmd.hasOption("fl")) {
             try {
                 GlobalParameters.setStartLevelFile((String) cmd.getParsedOptionValue("fl"));
             } catch (ParseException e) {
-                System.out.println("Invalid file name/path for starting level. " + e.getMessage()
+                LOGGER.log(Level.FINE, "Invalid file name/path for starting level. " + e.getMessage()
                         + "Using default value instead.");
             }
         }
@@ -92,7 +96,7 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setFramesPerSecond((int) cmd.getParsedOptionValue("fps"));
             } catch (ParseException e) {
-                System.out.println("Invalid Parameter for option Frames per Second. " + e.getMessage()
+                LOGGER.log(Level.FINE, "Invalid Parameter for option Frames per Second. " + e.getMessage()
                         + "Using default value instead.");
             }
         }
@@ -100,7 +104,7 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setVirtualHeight((int) cmd.getParsedOptionValue("vh"));
             } catch (ParseException e) {
-                System.out.println("Invalid Parameter for option Virtual Height. " + e.getMessage()
+                LOGGER.log(Level.FINE, "Invalid Parameter for option Virtual Height. " + e.getMessage()
                         + "Using default value instead.");
             }
         }
