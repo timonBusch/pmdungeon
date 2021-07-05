@@ -61,7 +61,32 @@ TODO
   - Click `Finish`
 
 ### IntelliJ IDEA integration
-- TODO
+- Project integration:
+	- If no project is opened in IntelliJ IDEA, then left click on `Open`. Otherwise left click on `File` choose `Open`
+	- Choose the project root directory
+	- Choose `Gradle project` or `Maven project`
+	- Choose `Trust Project`
+	- Choose `This Window` or `new Window`
+	
+### macOS
+- If you use macOS, you must add the VM-Argument `-XstartOnFirstThread` in your IDE.
+	- For Eclipse:
+		- Right click in project explorer and choose `Run As`
+		- Choose `Run Configurations...`
+		- Left click on `Arguments`
+		- In the `VM arguments:` add `-XstartOnFirstThread`
+		- Click `Run`
+	- For IntelliJ IDEA:
+		- Left click on `Edit Configurations...`
+		- Left click on `+`
+		- Choose `Application`
+		- Set a name
+		- Left click on `Modify options` and choose `Add VM options`
+		- For `VM options` you add `-XstartOnFirstThread`
+		- For `Main Class` you add the main Class from the project root directory
+		- Left click on `module not specified` and choose a JDK like `16`
+		- Left click on `<no module>` and choose the your project name
+		- Click `OK`
 
 This manual helps you to set up a basic implementation using this project.
 - [German Manual](./docs/manual_DE.md)
