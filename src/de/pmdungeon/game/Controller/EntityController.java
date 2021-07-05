@@ -29,7 +29,9 @@ public class EntityController {
      * @param entity
      */
     public void addEntity(IEntity entity) {
-        this.dungeonEntities.add(entity);
+        if (!dungeonEntities.contains(entity)) {
+            this.dungeonEntities.add(entity);
+        }
     }
 
     /**
@@ -38,7 +40,9 @@ public class EntityController {
      * @param entity
      */
     public void removeEntity(IEntity entity) {
-        this.dungeonEntities.remove(entity);
+        if (dungeonEntities.contains(entity)) {
+            this.dungeonEntities.remove(entity);
+        }
     }
 
     /** removes all entities from the list */
