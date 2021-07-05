@@ -37,6 +37,8 @@ public class DesktopLauncher {
      *             program to be fullscreen
      */
     public static void run(MainController mc, String[] args) {
+        LOGGER.setLevel(Level.INFO);
+
         Options options = new Options();
 
         Option height = new Option("h", "height", true, "Window height in px");
@@ -64,7 +66,7 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setHeight((int) cmd.getParsedOptionValue("height"));
             } catch (ParseException e) {
-                LOGGER.log(Level.FINE,
+                LOGGER.log(Level.INFO,
                         "Invalid Parameter for option Height. " + e.getMessage() + "Using default value instead.");
             }
         }
@@ -72,7 +74,7 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setWidth((int) cmd.getParsedOptionValue("width"));
             } catch (ParseException e) {
-                LOGGER.log(Level.FINE,
+                LOGGER.log(Level.INFO,
                         "Invalid Parameter for option Width. " + e.getMessage() + "Using default value instead.");
             }
         }
@@ -80,7 +82,7 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setLevelFolder((String) cmd.getParsedOptionValue("lf"));
             } catch (ParseException e) {
-                LOGGER.log(Level.FINE,
+                LOGGER.log(Level.INFO,
                         "Invalid Path to level folder. " + e.getMessage() + "Using default value instead.");
             }
         }
@@ -88,7 +90,7 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setStartLevelFile((String) cmd.getParsedOptionValue("fl"));
             } catch (ParseException e) {
-                LOGGER.log(Level.FINE, "Invalid file name/path for starting level. " + e.getMessage()
+                LOGGER.log(Level.INFO, "Invalid file name/path for starting level. " + e.getMessage()
                         + "Using default value instead.");
             }
         }
@@ -96,7 +98,7 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setFramesPerSecond((int) cmd.getParsedOptionValue("fps"));
             } catch (ParseException e) {
-                LOGGER.log(Level.FINE, "Invalid Parameter for option Frames per Second. " + e.getMessage()
+                LOGGER.log(Level.INFO, "Invalid Parameter for option Frames per Second. " + e.getMessage()
                         + "Using default value instead.");
             }
         }
@@ -104,7 +106,7 @@ public class DesktopLauncher {
             try {
                 GlobalParameters.setVirtualHeight((int) cmd.getParsedOptionValue("vh"));
             } catch (ParseException e) {
-                LOGGER.log(Level.FINE, "Invalid Parameter for option Virtual Height. " + e.getMessage()
+                LOGGER.log(Level.INFO, "Invalid Parameter for option Virtual Height. " + e.getMessage()
                         + "Using default value instead.");
             }
         }
