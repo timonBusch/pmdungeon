@@ -28,8 +28,8 @@ public class EntityController {
      * @param entity
      * @throws IllegalArgumentException
      */
-    public void addEntity(IEntity entity) throws IllegalArgumentException{
-        if (entity==null) throw new IllegalArgumentException("null can not be added.");
+    public void addEntity(IEntity entity) throws IllegalArgumentException {
+        if (entity == null) throw new IllegalArgumentException("null can not be added.");
         if (!dungeonEntities.contains(entity)) this.dungeonEntities.add(entity);
     }
 
@@ -39,8 +39,8 @@ public class EntityController {
      * @param entity
      * @throws IllegalArgumentException
      */
-    public void removeEntity(IEntity entity) throws IllegalArgumentException{
-        if (entity==null) throw new IllegalArgumentException("null can not be deleted.");
+    public void removeEntity(IEntity entity) throws IllegalArgumentException {
+        if (entity == null) throw new IllegalArgumentException("null can not be deleted.");
         if (dungeonEntities.contains(entity)) this.dungeonEntities.remove(entity);
     }
 
@@ -55,8 +55,8 @@ public class EntityController {
      * @param c referenz Class (use Class.forName("PACKAGE.CLASSNAME") )
      * @throws IllegalArgumentException
      */
-    public void removeAllFrom(Class<?> c) throws IllegalArgumentException{
-        if (c==null) throw new IllegalArgumentException("null is not a class");
+    public void removeAllFrom(Class<?> c) throws IllegalArgumentException {
+        if (c == null) throw new IllegalArgumentException("null is not a class");
         dungeonEntities.removeIf(obj -> c.isInstance(obj));
     }
 
