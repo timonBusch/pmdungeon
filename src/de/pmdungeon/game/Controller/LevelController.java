@@ -98,43 +98,21 @@ public class LevelController {
         dungeonWorld.renderFloor(GameSetup.batch);
         dungeonWorld.renderWalls(dungeonWorld.getHeight() - 1, 0, GameSetup.batch);
     }
-    // Switch dungeon.
 
     /** If next stage is triggered, change the dungeon. */
-    private void nextStage() throws InvocationTargetException, IllegalAccessException {
-        switch (nextStage) {
-            case A:
-                loadDungeon(
-                        dungeonConverter.dungeonFromJson(
-                                Constants.PATHTOLEVEL + "small_dungeon.json"));
-                nextStage = Stage.B;
-                break;
-            case B:
-                loadDungeon(
-                        dungeonConverter.dungeonFromJson(
-                                Constants.PATHTOLEVEL + "simple_dungeon_2.json"));
-                nextStage = Stage.C;
-                break;
-            case C:
-                loadDungeon(
-                        dungeonConverter.dungeonFromJson(
-                                Constants.PATHTOLEVEL + "simple_dungeon.json"));
-                nextStage = Stage.D;
-                break;
-            case D:
-                loadDungeon(
-                        dungeonConverter.dungeonFromJson(
-                                Constants.PATHTOLEVEL + "boss_dungeon.json"));
-                nextStage = Stage.A;
-                break;
-        }
+    protected void nextStage() throws InvocationTargetException, IllegalAccessException {
+        loadDungeon(dungeonConverter.dungeonFromJson(Constants.PATHTOLEVEL + nextStage.getValue()));
+        nextStage = Stage.values()[(nextStage.ordinal() + 1) % Stage.values().length];
     }
 
-    /** used to manage nextStage() */
     enum Stage {
-        A,
-        B,
-        C,
-        D
+        A("small_dungeon.json"),
+        B("simple_dungeon_2.json"),
+        C("simple_dungeon.json"),
+        D("boss_dungeon.json");
+
+        private final String value;
+        Stage(String value) { this.value = value; }
+        public String getValue() { return this.value; }
     }
 }
