@@ -112,7 +112,13 @@ public class LevelController {
         D("boss_dungeon.json");
 
         private final String value;
-        Stage(String value) { this.value = value; }
-        public String getValue() { return this.value; }
+
+        Stage(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return this.value;
+        }
     }
 }
